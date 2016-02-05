@@ -37,16 +37,41 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/service_version" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
         </LinearLayout>
 
         <LinearLayout
@@ -57,257 +82,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_version" />
-
-            <TextView
-                android:id="@+id/appversion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tango_event" />
-
-            <TextView
-                android:id="@+id/tangoevent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/start2device" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/status" />
-
-            <TextView
-                android:id="@+id/start2deviceStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pose_count" />
-
-            <TextView
-                android:id="@+id/start2devicePosecount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delta_time" />
-
-            <TextView
-                android:id="@+id/start2deviceDeltatime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pose" />
-
-            <TextView
-                android:id="@+id/start2devicePose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quat" />
-
-            <TextView
-                android:id="@+id/start2deviceQuat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/adf2device"
-                android:id="@+id/adf2device" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/status" />
-
-            <TextView
-                android:id="@+id/adf2deviceStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pose_count" />
-
-            <TextView
-                android:id="@+id/adf2devicePosecount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delta_time" />
+                android:text="Distance"
+                android:textSize="50dp"
+                android:layout_marginRight="10dp" />
 
             <TextView
                 android:id="@+id/adf2deviceDeltatime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/na" />
+                android:text="@string/na"
+                android:textSize="50dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pose" />
-
-            <TextView
-                android:id="@+id/adf2devicePose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quat" />
-
-            <TextView
-                android:id="@+id/adf2deviceQuat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
                 android:id="@+id/adf2direction"
-                android:layout_gravity="bottom" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/adf2start" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/status" />
-
-            <TextView
-                android:id="@+id/adf2startStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pose_count" />
-
-            <TextView
-                android:id="@+id/adf2startPosecount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delta_time" />
-
-            <TextView
-                android:id="@+id/adf2startDeltatime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pose" />
-
-            <TextView
-                android:id="@+id/adf2startPose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quat" />
-
-            <TextView
-                android:id="@+id/adf2startQuat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/na" />
+                android:layout_gravity="bottom"
+                android:textSize="50dp" />
         </LinearLayout>
 
         <LinearLayout

@@ -35,4 +35,5 @@ dependencies {
     compile fileTree(dir: external_lib_prefix + '/jar', include: ['**/*.jar'])
     compile project(':navigationframework')
     compile project(':TangoUtils')
+    compile project(':debugkoffee')
 }

@@ -16,19 +16,9 @@
 
 package com.mobileinnovationlab.navigationframework;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.atap.tangoservice.Tango;
@@ -41,23 +31,16 @@ import com.google.atap.tangoservice.TangoInvalidException;
 import com.google.atap.tangoservice.TangoOutOfDateException;
 import com.google.atap.tangoservice.TangoPoseData;
 import com.google.atap.tangoservice.TangoXyzIjData;
-import com.projecttango.tangoutils.TangoPoseUtilities;
+import com.mobileinnovationlab.navigationframework.interfaces.WayFinderAction;
 
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Main Activity class for the Area Learning API Sample. Handles the connection to the Tango service
- * and propagation of Tango pose data to OpenGL and Layout views. OpenGL rendering logic is
- * delegated to the {@link AreaLearningRajawaliRenderer} class.
- */
 public class WayFinder {
 
-    public interface WayFinderAction {
-        public void control(String action, TangoPoseData[] data);
-    }
+
 
     private static final int SECS_TO_MILLISECS = 1000;
     private Tango mTango;
@@ -79,6 +62,7 @@ public class WayFinder {
     private boolean mIsConstantSpaceRelocalize;
 
     private String directionText;
+    private double diffDistance;
 
     private TangoPoseData[] mPoses;
     private static final double UPDATE_INTERVAL_MS = 100.0;
@@ -95,12 +79,16 @@ public class WayFinder {
     private double mAdf2DevicePoseDelta = 0;
     private double mAdf2StartPoseDelta = 0;
     private double mStart2DevicePoseDelta = 0;
+    private boolean mIsDebug = false;
 
     private WayFinderAction mCallback;
 
-    public WayFinder(Context context, boolean arealearning, boolean loadadf, WayFinderAction callback, Object sharedLock){
+
+    public WayFinder(Context context, boolean arealearning, boolean loadadf, WayFinderAction callback, Object sharedLock,  boolean isDebug){
         mContext = context;
         init(arealearning,loadadf,callback,sharedLock);
+        mIsDebug = isDebug;
+
     }
 
 
@@ -114,9 +102,9 @@ public class WayFinder {
         mConfig = setTangoConfig(mTango, mIsLearningMode, mIsConstantSpaceRelocalize);
 
 
-        points = new ArrayList<Pair<String, Pair<Float, Float>>>();
-        points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 2.00f)));
-        points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(2.00f, 2.00f)));
+        //points = new ArrayList<Pair<String, Pair<Float, Float>>>();
+        //points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 4.80f)));
+        //points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
 
         // Reset pose data and start counting from resume.
         initializePoseData();
@@ -135,20 +123,12 @@ public class WayFinder {
             Toast.makeText(mContext, R.string.no_permissions, Toast.LENGTH_SHORT).show();
         }
 
-        // Connect to the tango service (start receiving pose updates).
-        try {
-            mTango.connect(mConfig);
-        } catch (TangoOutOfDateException e) {
-            Toast.makeText(mContext, R.string.tango_out_of_date_exception, Toast.LENGTH_SHORT).show();
-        } catch (TangoErrorException e) {
-            Toast.makeText(mContext, R.string.tango_error, Toast.LENGTH_SHORT).show();
-        } catch (TangoInvalidException e) {
-            Toast.makeText(mContext, R.string.tango_invalid, Toast.LENGTH_SHORT).show();
-        }
-
         mCallback = callback;
 
+
     }
+
+
 
     /**
      * Initializes pose data we keep track of. To be done
@@ -160,6 +140,22 @@ public class WayFinder {
         mAdf2StartPoseCount = 0;
     }
 
+
+    public void start(List<Pair<String, Pair<Float, Float>>> list){
+
+        points = list;
+
+        // Connect to the tango service (start receiving pose updates).
+        try {
+            mTango.connect(mConfig);
+        } catch (TangoOutOfDateException e) {
+            Toast.makeText(mContext, R.string.tango_out_of_date_exception, Toast.LENGTH_SHORT).show();
+        } catch (TangoErrorException e) {
+            Toast.makeText(mContext, R.string.tango_error, Toast.LENGTH_SHORT).show();
+        } catch (TangoInvalidException e) {
+            Toast.makeText(mContext, R.string.tango_invalid, Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void stop(){
         try {
@@ -272,50 +268,90 @@ public class WayFinder {
                         }
 
 
-                        if(points.get(0).first.equals("y")) {
-                            //lets do something with it
-                            Pair<Float, Float> pair = points.get(0).second;
-                            if (pair.first.doubleValue() - pose.translation[0] > .2) {
-                                //go left
-                                directionText = "go right";
-                            } else if (pair.first.doubleValue() - pose.translation[0] < -0.2) {
-                                //go right
-                                directionText = "go left";
-                            }
-                            else {
-                                //go right
-                                directionText = "";
-                            }
+                        if(!mIsDebug) {
+                            if (points.size() != 0) {
+                                if (points.get(0).first.equals("y")) {
+                                    //lets do something with it
+                                    Pair<Float, Float> pair = points.get(0).second;
 
-                            if (pair.second.doubleValue() - pose.translation[1] <= 0) {
-                                //rotate
-                                //points.remove(0);
+                                    if (pair.first.doubleValue() - pose.translation[0] > .2) {
+                                        //go left
+                                        directionText = "go right";
+
+                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
+                                    } else if (pair.first.doubleValue() - pose.translation[0] < -0.2) {
+                                        //go right
+                                        directionText = "go left";
+                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
+                                    } else {
+                                        //go right
+                                        directionText = "go straight";
+                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
+                                    }
+
+                                    if (pair.second.doubleValue() - pose.translation[1] <= 0) {
+                                        //rotate
+                                        points.remove(0);
+                                    }
+                                } else if (points.get(0).first.equals("x")) {
+                                    //lets do something with it
+                                    Pair<Float, Float> pair = points.get(0).second;
+                                    if (pose.translation[1] - pair.second.doubleValue() > .2) {
+                                        //go left
+                                        directionText = "go left";
+                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
+                                    } else if (pose.translation[1] - pair.second.doubleValue() < -0.2) {
+                                        //go right
+                                        directionText = "go right";
+                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
+                                    } else {
+                                        //go right
+                                        directionText = "go straight";
+                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
+                                    }
+
+                                    if (pose.translation[0] - pair.first.doubleValue() <= 0) {
+                                        //rotate
+                                        points.remove(0);
+                                        if (points.size() == 0)
+                                            directionText = "Destination Reached";
+                                    }
+                                } else if (points.get(0).first.equals("r")) {
+                                    //lets do something with it
+                                    Pair<Float, Float> pair = points.get(0).second;
+
+                                    if ((pose.rotation[1] >= pair.second.doubleValue()) && pose.rotation[1] - pair.second.doubleValue() < 0.15) {
+
+                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + pair.second.doubleValue());
+                                        //rotate
+                                        points.remove(0);
+                                        if (points.size() == 0)
+                                            directionText = "Destination Reached";
+                                    }
+                                    else if ((pose.rotation[1] <= pair.second.doubleValue()) &&  pair.second.doubleValue() - pose.rotation[1]  < 0.15) {
+
+                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + pair.second.doubleValue());
+                                        //rotate
+                                        points.remove(0);
+                                        if (points.size() == 0)
+                                            directionText = "Destination Reached";
+                                    }else {
+
+                                        if ((pose.rotation[1] >= pair.second.doubleValue()) ) {
+
+                                            directionText = "Keep Rotating to Left";
+                                            diffDistance = pose.rotation[1] - pair.second.doubleValue();
+                                        }
+                                        else if ((pose.rotation[1] <= pair.second.doubleValue())) {
+
+                                            directionText = "Keep Rotating to Right";
+                                            diffDistance = pair.second.doubleValue() - pose.rotation[1];
+                                        }
+
+                                    }
+                                }
                             }
                         }
-
-
-                        /*if(points.get(0).first.equals("x")) {
-                            //lets do something with it
-                            Pair<Float, Float> pair = points.get(0).second;
-                            if (pair.second.doubleValue() - pose.translation[0] > .2) {
-                                //go left
-                                directionText = "go right";
-                            } else if (pair.second.doubleValue() - pose.translation[0] < -0.2) {
-                                //go right
-                                directionText = "go left";
-                            }
-                            else {
-                                //go right
-                                directionText = "";
-                            }
-
-                            if (pair.first.doubleValue() - pose.translation[1] <= 0) {
-                                //rotate
-                                points.remove(0);
-                                if(points.size()==0)
-                                    directionText = "Destination Reached";
-                            }
-                        }*/
 
                     } else if (pose.baseFrame == TangoPoseData.COORDINATE_FRAME_START_OF_SERVICE
                             && pose.targetFrame == TangoPoseData.COORDINATE_FRAME_DEVICE) {
@@ -370,19 +406,16 @@ public class WayFinder {
                 if (mTimeToNextUpdate < 0.0) {
                     mTimeToNextUpdate = UPDATE_INTERVAL_MS;
 
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            synchronized (mSharedLock) {
-//                                updateTextViews();
-//                            }//                       }
-//                    });
+
+
                     //callback to send data
-                    mCallback.control(directionText, mPoses);
+                    if(mPoses[0]!=null) {
+                        mCallback.motionSystem(directionText, diffDistance, mPoses[0]);
+                    }
                 }
 
-                if (updateRenderer) {
-                    //mRenderer.updateDevicePose(pose, mIsRelocalized);
+                if(updateRenderer) {
+                    mCallback.currentPosition(pose, mIsRelocalized);
                 }
             }
 

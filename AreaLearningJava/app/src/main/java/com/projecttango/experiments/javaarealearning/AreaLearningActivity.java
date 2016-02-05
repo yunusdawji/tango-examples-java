@@ -16,19 +16,10 @@
 
 package com.projecttango.experiments.javaarealearning;
 
-import com.google.atap.tangoservice.Tango.OnTangoUpdateListener;
 import com.google.atap.tangoservice.Tango;
 import com.google.atap.tangoservice.TangoConfig;
-import com.google.atap.tangoservice.TangoCoordinateFramePair;
-import com.google.atap.tangoservice.TangoErrorException;
-import com.google.atap.tangoservice.TangoEvent;
-import com.google.atap.tangoservice.TangoInvalidException;
-import com.google.atap.tangoservice.TangoOutOfDateException;
 import com.google.atap.tangoservice.TangoPoseData;
-import com.google.atap.tangoservice.TangoXyzIjData;
-
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -41,20 +32,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.mobileinnovationlab.debugkoffee.DebugKoffee;
+import com.mobileinnovationlab.debugkoffee.PositionUI;
+import com.mobileinnovationlab.navigationframework.ControlAction;
 import com.mobileinnovationlab.navigationframework.WayFinder;
 import com.projecttango.tangoutils.TangoPoseUtilities;
 
 import org.rajawali3d.surface.IRajawaliSurface;
 import org.rajawali3d.surface.RajawaliSurfaceView;
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * Main Activity class for the Area Learning API Sample. Handles the connection to the Tango service
@@ -62,7 +51,7 @@ import java.util.Map;
  * delegated to the {@link AreaLearningRajawaliRenderer} class.
  */
 public class AreaLearningActivity extends Activity implements View.OnClickListener,
-        SetADFNameDialog.CallbackListener, SaveAdfTask.SaveAdfListener, WayFinder.WayFinderAction {
+        SetADFNameDialog.CallbackListener, SaveAdfTask.SaveAdfListener, PositionUI {
 
     private static final String TAG = AreaLearningActivity.class.getSimpleName();
     private static final int SECS_TO_MILLISECS = 1000;
@@ -114,6 +103,7 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     private boolean mIsRelocalized;
     private boolean mIsLearningMode;
     private boolean mIsConstantSpaceRelocalize;
+    private boolean mIsDebugMode;
 
 
     private AreaLearningRajawaliRenderer mRenderer;
@@ -140,27 +130,24 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         Intent intent = getIntent();
         mIsLearningMode = intent.getBooleanExtra(ALStartActivity.USE_AREA_LEARNING, false);
         mIsConstantSpaceRelocalize = intent.getBooleanExtra(ALStartActivity.LOAD_ADF, false);
+        mIsDebugMode = intent.getBooleanExtra(ALStartActivity.IS_DEBUG_MODE, false);
 
         points = new ArrayList<Pair<String, Pair<Float, Float>>>();
-        points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 2.00f)));
-        points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(2.00f, 2.00f)));
+        points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 4.80f)));
+        points.add(new Pair<String, Pair<Float, Float>>("r", new Pair<Float, Float>(0.00f, 0.50f)));
+        points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
 
         mRenderer = setupGLViewAndRenderer();
 
         setupTextViewsAndButtons(false, false);
 
-        mWayFinder = new WayFinder(getApplicationContext(), mIsLearningMode, mIsConstantSpaceRelocalize, this, mSharedLock);
+        //mWayFinder = new WayFinder(getApplicationContext(), mIsLearningMode, mIsConstantSpaceRelocalize, this, mSharedLock, points, mIsDebugMode);
+        if(!mIsDebugMode){
+            DebugKoffee mDebugKofee = new DebugKoffee(getApplicationContext(), mSharedLock, this);
+            mDebugKofee.control(points, new ControlAction(ControlAction.GO));
+        }
     }
 
-    /**
-     * Initializes pose data we keep track of. To be done
-     */
-    private void initializePoseData() {
-        mPoses = new TangoPoseData[3];
-        mStart2DevicePoseCount = 0;
-        mAdf2DevicePoseCount = 0;
-        mAdf2StartPoseCount = 0;
-    }
 
     /**
      * Implements SetADFNameDialog.CallbackListener.
@@ -181,7 +168,7 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     @Override
     protected void onPause() {
         super.onPause();
-        mWayFinder.stop();
+//        mWayFinder.stop();
     }
 
     @Override
@@ -246,9 +233,9 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
      * etc.
      */
     private void setupTextViewsAndButtons(  boolean isLearningMode, boolean isLoadAdf){
-        mTangoEventTextView = (TextView) findViewById(R.id.tangoevent);
+        //mTangoEventTextView = (TextView) findViewById(R.id.tangoevent);
 
-        mAdf2DeviceTranslationTextView = (TextView) findViewById(R.id.adf2devicePose);
+       /* mAdf2DeviceTranslationTextView = (TextView) findViewById(R.id.adf2devicePose);
         mStart2DeviceTranslationTextView = (TextView) findViewById(R.id.start2devicePose);
         mAdf2StartTranslationTextView = (TextView) findViewById(R.id.adf2startPose);
         mAdf2DeviceQuatTextView = (TextView) findViewById(R.id.adf2deviceQuat);
@@ -262,17 +249,17 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         mAdf2DevicePoseCountTextView = (TextView) findViewById(R.id.adf2devicePosecount);
         mStart2DevicePoseCountTextView = (TextView) findViewById(R.id.start2devicePosecount);
         mAdf2StartPoseCountTextView = (TextView) findViewById(R.id.adf2startPosecount);
-
+*/
         mAdf2DevicePoseDeltaTextView = (TextView) findViewById(R.id.adf2deviceDeltatime);
-        mStart2DevicePoseDeltaTextView = (TextView) findViewById(R.id.start2deviceDeltatime);
-        mAdf2StartPoseDeltaTextView = (TextView) findViewById(R.id.adf2startDeltatime);
+        //mStart2DevicePoseDeltaTextView = (TextView) findViewById(R.id.start2deviceDeltatime);
+        //mAdf2StartPoseDeltaTextView = (TextView) findViewById(R.id.adf2startDeltatime);
 
         mFirstPersonButton = (Button) findViewById(R.id.first_person_button);
         mThirdPersonButton = (Button) findViewById(R.id.third_person_button);
         mTopDownButton = (Button) findViewById(R.id.top_down_button);
 
-        mTangoServiceVersionTextView = (TextView) findViewById(R.id.version);
-        mApplicationVersionTextView = (TextView) findViewById(R.id.appversion);
+       // mTangoServiceVersionTextView = (TextView) findViewById(R.id.version);
+       // mApplicationVersionTextView = (TextView) findViewById(R.id.appversion);
         mGLView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
 
         mSaveAdfButton = (Button) findViewById(R.id.saveAdf);
@@ -293,17 +280,11 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
             mSaveAdfButton.setVisibility(View.GONE);
         }
 
-
-
-
-
-
         //mTangoServiceVersionTextView.setText(config.getString("tango_service_library_version"));
-
         PackageInfo packageInfo;
         try {
             packageInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
-            mApplicationVersionTextView.setText(packageInfo.versionName);
+//            mApplicationVersionTextView.setText(packageInfo.versionName);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -320,7 +301,6 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         if (isLearningMode) {
             // Set learning mode to config.
             config.putBoolean(TangoConfig.KEY_BOOLEAN_LEARNINGMODE, true);
-
         }
         // Check for Load ADF/Constant Space relocalization mode
         if (isLoadAdf) {
@@ -388,51 +368,33 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
      * Updates the text view in UI screen with the Pose. Each pose is associated with Target and
      * Base Frame. We need to check for that pair and update our views accordingly.
      */
-    private void updateTextViews(String msg, TangoPoseData[] mPoses) {
+    private void updateTextViews(String msg, double distance, TangoPoseData poseData) {
         // Allow clicking of the save button only when Tango is localized to the current ADF.
         mSaveAdfButton.setEnabled(mIsRelocalized);
+        //TangoPoseData temppose = new TangoPoseData();
+        //temppose.rotation = TangoPoseUtilities.toAngles(poseData);
 
-        mAdf2DirectionTextView.setText(msg);
+        //mAdf2DirectionTextView.setText(msg);
+        mAdf2DirectionTextView.setText(TangoPoseUtilities.getQuaternionString(poseData, FORMAT_THREE_DECIMAL));
+        mAdf2DevicePoseDeltaTextView.setText(Double.toString(Math.abs(distance)));
 
-        if (mPoses[0] != null && mPoses[0].baseFrame == TangoPoseData.COORDINATE_FRAME_AREA_DESCRIPTION
-                && mPoses[0].targetFrame == TangoPoseData.COORDINATE_FRAME_DEVICE) {
-            mAdf2DeviceTranslationTextView.setText(TangoPoseUtilities.getTranslationString(mPoses[0], FORMAT_THREE_DECIMAL));
-            mAdf2DeviceQuatTextView.setText(TangoPoseUtilities.getQuaternionString(mPoses[0], FORMAT_THREE_DECIMAL));
-            mAdf2DevicePoseStatusTextView.setText(TangoPoseUtilities.getStatusString(mPoses[0]));
-            mAdf2DevicePoseCountTextView.setText(Integer.toString(mAdf2DevicePoseCount));
-            mAdf2DevicePoseDeltaTextView.setText(FORMAT_THREE_DECIMAL.format(mAdf2DevicePoseDelta));
-        }
-
-        if (mPoses[1] != null && mPoses[1].baseFrame == TangoPoseData.COORDINATE_FRAME_START_OF_SERVICE
-                && mPoses[1].targetFrame == TangoPoseData.COORDINATE_FRAME_DEVICE) {
-            mStart2DeviceTranslationTextView.setText(TangoPoseUtilities.getTranslationString(mPoses[1], FORMAT_THREE_DECIMAL));
-            mStart2DeviceQuatTextView.setText(TangoPoseUtilities.getQuaternionString(mPoses[1], FORMAT_THREE_DECIMAL));
-            mStart2DevicePoseStatusTextView.setText(TangoPoseUtilities.getStatusString(mPoses[1]));
-            mStart2DevicePoseCountTextView.setText(Integer.toString(mStart2DevicePoseCount));
-            mStart2DevicePoseDeltaTextView.setText(FORMAT_THREE_DECIMAL.format(mStart2DevicePoseDelta));
-        }
-
-        if (mPoses[2] != null && mPoses[2].baseFrame == TangoPoseData.COORDINATE_FRAME_AREA_DESCRIPTION
-                && mPoses[2].targetFrame == TangoPoseData.COORDINATE_FRAME_START_OF_SERVICE) {
-            mAdf2StartTranslationTextView.setText(TangoPoseUtilities.getTranslationString(mPoses[2], FORMAT_THREE_DECIMAL));
-            mAdf2StartQuatTextView.setText(TangoPoseUtilities.getQuaternionString(mPoses[2], FORMAT_THREE_DECIMAL));
-            mAdf2StartPoseStatusTextView.setText(TangoPoseUtilities.getStatusString(mPoses[2]));
-            mAdf2StartPoseCountTextView.setText(Integer.toString(mAdf2StartPoseCount));
-            mAdf2StartPoseDeltaTextView.setText(FORMAT_THREE_DECIMAL.format(mAdf2StartPoseDelta));
-        }
     }
 
     @Override
-    public void control(final String action, final TangoPoseData[] data) {
+    public void uipathrender( TangoPoseData poseData, boolean mIsRelocalized) {
+        final TangoPoseData temppose = TangoPoseUtilities.convertangles(poseData);
+        mRenderer.updateDevicePose(poseData, mIsRelocalized);
+    }
 
+    @Override
+    public void motionSystemCallback(final String action, final double distance, final TangoPoseData poseData) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 synchronized (mSharedLock) {
-                    updateTextViews(action, data);
+                    updateTextViews(action, distance, poseData);
                 }
             }
         });
-
     }
 }

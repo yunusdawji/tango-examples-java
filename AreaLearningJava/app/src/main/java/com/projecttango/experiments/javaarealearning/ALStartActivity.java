@@ -34,12 +34,16 @@ public class ALStartActivity extends Activity implements View.OnClickListener {
 
     public static final String USE_AREA_LEARNING = 
             "com.projecttango.areadescriptionjava.usearealearning";
+    public static final String IS_DEBUG_MODE =
+            "com.projecttango.areadescriptionjava.isdebugmode";
     public static final String LOAD_ADF = "com.projecttango.areadescriptionjava.loadadf";
     private ToggleButton mLearningModeToggleButton;
     private ToggleButton mLoadADFToggleButton;
     private Button mStartButton;
+    private ToggleButton mDebugButton;
     private boolean mIsUseAreaLearning;
     private boolean mIsLoadADF;
+    private boolean mIsDebugMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +53,12 @@ public class ALStartActivity extends Activity implements View.OnClickListener {
         mLearningModeToggleButton = (ToggleButton) findViewById(R.id.learningmode);
         mLoadADFToggleButton = (ToggleButton) findViewById(R.id.loadadf);
         mStartButton = (Button) findViewById(R.id.start);
+        mDebugButton = (ToggleButton) findViewById(R.id.debug);
         findViewById(R.id.ADFListView).setOnClickListener(this);
         mLearningModeToggleButton.setOnClickListener(this);
         mLoadADFToggleButton.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
+        mDebugButton.setOnClickListener(this);
         startActivityForResult(
                 Tango.getRequestPermissionIntent(Tango.PERMISSIONTYPE_ADF_LOAD_SAVE), 0);
     }
@@ -72,6 +78,9 @@ public class ALStartActivity extends Activity implements View.OnClickListener {
         case R.id.ADFListView:
             startADFListView();
             break;
+        case R.id.debug:
+            mIsDebugMode = mDebugButton.isChecked();
+            break;
         }
     }
 
@@ -80,6 +89,7 @@ public class ALStartActivity extends Activity implements View.OnClickListener {
         mIsUseAreaLearning = mLearningModeToggleButton.isChecked();
         mIsLoadADF = mLoadADFToggleButton.isChecked();
         startADIntent.putExtra(USE_AREA_LEARNING, mIsUseAreaLearning);
+        startADIntent.putExtra(IS_DEBUG_MODE, mIsDebugMode);
         startADIntent.putExtra(LOAD_ADF, mIsLoadADF);
         startActivity(startADIntent);
     }
