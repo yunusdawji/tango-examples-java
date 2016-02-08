@@ -6,6 +6,7 @@ import android.util.Pair;
 
 import com.google.atap.tangoservice.TangoPoseData;
 import com.mobileinnovationlab.navigationframework.ControlAction;
+import com.mobileinnovationlab.navigationframework.Orientation;
 import com.mobileinnovationlab.navigationframework.WayFinder;
 import com.mobileinnovationlab.navigationframework.interfaces.WayFinderAction;
 
@@ -19,7 +20,7 @@ public class DebugKoffee implements WayFinderAction {
 
     private WayFinder mWayFinder;
     private Context mContext;
-    private ArrayList<Pair<String, Pair<Float, Float>>> points;
+    private ArrayList<Orientation> points;
     private PositionUI mCallback;
 
     Intent intent;
@@ -37,7 +38,7 @@ public class DebugKoffee implements WayFinderAction {
     }
 
     @Override
-    public void control(List<Pair<String, Pair<Float, Float>>> list, ControlAction action) {
+    public void control(List<Orientation> list, ControlAction action) {
         if(action.getActionType().equals(ControlAction.GO)){
             mWayFinder.start(list);
         }else if(action.getActionType().equals(ControlAction.STOP)){

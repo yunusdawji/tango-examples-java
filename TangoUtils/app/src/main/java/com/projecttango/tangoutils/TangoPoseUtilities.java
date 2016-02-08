@@ -48,8 +48,8 @@ public class TangoPoseUtilities {
         String quaternionString ="["
                 + decimalFormat.format(pose.rotation[0]) + ", "
                 + decimalFormat.format(pose.rotation[1]) + ", "
-                + decimalFormat.format(pose.rotation[2]) + ", ";
-                //+ decimalFormat.format(pose.rotation[3]) + "] ";
+                + decimalFormat.format(pose.rotation[2]) + ", "
+                + decimalFormat.format(pose.rotation[3]) + "] ";
         return  quaternionString;
     }
 

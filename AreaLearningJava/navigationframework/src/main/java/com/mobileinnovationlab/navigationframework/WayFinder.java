@@ -69,7 +69,7 @@ public class WayFinder {
     private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("00.000");
 
     private Object mSharedLock;
-    private List<Pair<String, Pair<Float, Float>>> points;
+    private List<Orientation> points;
 
     private Context mContext;
 
@@ -101,7 +101,6 @@ public class WayFinder {
         mIsRelocalized = false;
         mConfig = setTangoConfig(mTango, mIsLearningMode, mIsConstantSpaceRelocalize);
 
-
         //points = new ArrayList<Pair<String, Pair<Float, Float>>>();
         //points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 4.80f)));
         //points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
@@ -111,7 +110,6 @@ public class WayFinder {
 
         // Clear the relocalization state: we don't know where the device has been since our app was paused.
         mIsRelocalized = false;
-
         mSharedLock = sharedLock;
 
         // Re-attach listeners.
@@ -141,10 +139,8 @@ public class WayFinder {
     }
 
 
-    public void start(List<Pair<String, Pair<Float, Float>>> list){
-
+    public void start(List<Orientation> list){
         points = list;
-
         // Connect to the tango service (start receiving pose updates).
         try {
             mTango.connect(mConfig);
@@ -270,11 +266,32 @@ public class WayFinder {
 
                         if(!mIsDebug) {
                             if (points.size() != 0) {
-                                if (points.get(0).first.equals("y")) {
-                                    //lets do something with it
-                                    Pair<Float, Float> pair = points.get(0).second;
 
-                                    if (pair.first.doubleValue() - pose.translation[0] > .2) {
+                                pose.rotation[1] += 0.680;
+                                if (points.get(0).getType().equals(Orientation.MOTION_Y)) {
+                                    //lets do something with it
+                                    Pair<Float, Float> pair = points.get(0).getXy();
+
+                                    if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.1 ){
+                                        if ((pose.rotation[1] >= points.get(0).getRotation()) && pose.rotation[1] - points.get(0).getRotation() < 0.05) {
+                                        }
+                                        else if ((pose.rotation[1] <= points.get(0).getRotation()) &&  points.get(0).getRotation() - pose.rotation[1]  < 0.05) {
+                                        }else {
+
+                                            if ((pose.rotation[1] >= points.get(0).getRotation()) ) {
+
+                                                directionText = "Keep Rotating to RIGHT";
+                                                diffDistance = pose.rotation[1] - points.get(0).getRotation();
+                                            }
+                                            else if ((pose.rotation[1] <= points.get(0).getRotation())) {
+
+                                                directionText = "Keep Rotating to LEFT";
+                                                diffDistance = points.get(0).getRotation() - pose.rotation[1];
+                                            }
+
+                                        }
+                                    }
+                                    else if (pair.first.doubleValue() - pose.translation[0] > .2) {
                                         //go left
                                         directionText = "go right";
 
@@ -293,10 +310,30 @@ public class WayFinder {
                                         //rotate
                                         points.remove(0);
                                     }
-                                } else if (points.get(0).first.equals("x")) {
+                                } else if (points.get(0).getType().equals(Orientation.MOTION_X)) {
                                     //lets do something with it
-                                    Pair<Float, Float> pair = points.get(0).second;
-                                    if (pose.translation[1] - pair.second.doubleValue() > .2) {
+                                    Pair<Float, Float> pair = points.get(0).getXy();
+
+                                    if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.10 ){
+                                        if ((pose.rotation[1] >= points.get(0).getRotation()) && pose.rotation[1] - points.get(0).getRotation() < 0.05) {
+                                        }
+                                        else if ((pose.rotation[1] <= points.get(0).getRotation()) &&  points.get(0).getRotation() - pose.rotation[1]  < 0.05) {
+                                        }else {
+
+                                            if ((pose.rotation[1] >= points.get(0).getRotation()) ) {
+
+                                                directionText = "Keep Rotating to RIGHT";
+                                                diffDistance = pose.rotation[1] - points.get(0).getRotation();
+                                            }
+                                            else if ((pose.rotation[1] <= points.get(0).getRotation())) {
+
+                                                directionText = "Keep Rotating to LEFT";
+                                                diffDistance = points.get(0).getRotation() - pose.rotation[1];
+                                            }
+
+                                        }
+                                    }
+                                    else if (pose.translation[1] - pair.second.doubleValue() > .2) {
                                         //go left
                                         directionText = "go left";
                                         diffDistance = pose.translation[1] - pair.second.doubleValue();
@@ -314,38 +351,37 @@ public class WayFinder {
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reached";
+                                            directionText = "Destination Reachedx";
                                     }
-                                } else if (points.get(0).first.equals("r")) {
-                                    //lets do something with it
-                                    Pair<Float, Float> pair = points.get(0).second;
+                                } else if (points.get(0).getType().equals(Orientation.ROT)) {
+                                    Float rotation = points.get(0).getRotation();
 
-                                    if ((pose.rotation[1] >= pair.second.doubleValue()) && pose.rotation[1] - pair.second.doubleValue() < 0.15) {
+                                    if ((pose.rotation[1] >= rotation) && pose.rotation[1] - rotation < 0.05) {
 
-                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + pair.second.doubleValue());
+                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + rotation);
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reached";
+                                            directionText = "Destination Reachedr";
                                     }
-                                    else if ((pose.rotation[1] <= pair.second.doubleValue()) &&  pair.second.doubleValue() - pose.rotation[1]  < 0.15) {
+                                    else if ((pose.rotation[1] <= rotation) &&  rotation - pose.rotation[1]  < 0.05) {
 
-                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + pair.second.doubleValue());
+                                        Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + rotation);
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reached";
+                                            directionText = "Destination Reachedr";
                                     }else {
 
-                                        if ((pose.rotation[1] >= pair.second.doubleValue()) ) {
+                                        if ((pose.rotation[1] >= rotation) ) {
 
                                             directionText = "Keep Rotating to Left";
-                                            diffDistance = pose.rotation[1] - pair.second.doubleValue();
+                                            diffDistance = pose.rotation[1] - rotation;
                                         }
-                                        else if ((pose.rotation[1] <= pair.second.doubleValue())) {
+                                        else if ((pose.rotation[1] <= rotation)) {
 
                                             directionText = "Keep Rotating to Right";
-                                            diffDistance = pair.second.doubleValue() - pose.rotation[1];
+                                            diffDistance = rotation - pose.rotation[1];
                                         }
 
                                     }

@@ -35,9 +35,11 @@ import android.widget.Toast;
 import com.mobileinnovationlab.debugkoffee.DebugKoffee;
 import com.mobileinnovationlab.debugkoffee.PositionUI;
 import com.mobileinnovationlab.navigationframework.ControlAction;
+import com.mobileinnovationlab.navigationframework.Orientation;
 import com.mobileinnovationlab.navigationframework.WayFinder;
 import com.projecttango.tangoutils.TangoPoseUtilities;
 
+import org.rajawali3d.math.Quaternion;
 import org.rajawali3d.surface.IRajawaliSurface;
 import org.rajawali3d.surface.RajawaliSurfaceView;
 import java.text.DecimalFormat;
@@ -119,7 +121,7 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("00.000");
 
     private final Object mSharedLock = new Object();
-    private List<Pair<String, Pair<Float, Float>>> points;
+    private List<Orientation> points;
 
     private WayFinder mWayFinder;
 
@@ -132,10 +134,11 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         mIsConstantSpaceRelocalize = intent.getBooleanExtra(ALStartActivity.LOAD_ADF, false);
         mIsDebugMode = intent.getBooleanExtra(ALStartActivity.IS_DEBUG_MODE, false);
 
-        points = new ArrayList<Pair<String, Pair<Float, Float>>>();
-        points.add(new Pair<String, Pair<Float, Float>>("y", new Pair<Float, Float>(0.00f, 4.80f)));
-        points.add(new Pair<String, Pair<Float, Float>>("r", new Pair<Float, Float>(0.00f, 0.50f)));
-        points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
+        points = new ArrayList<Orientation>();
+        points.add(new Orientation(Orientation.MOTION_Y, new Pair<Float, Float>(0.00f, 4.80f),0.695f));
+        points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(0.00f, 0.50f),1.100f));
+        points.add(new Orientation(Orientation.MOTION_X, new Pair<Float, Float>(-9.0f, 4.80f),1.100f));
+        //points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
 
         mRenderer = setupGLViewAndRenderer();
 
@@ -375,7 +378,18 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         //temppose.rotation = TangoPoseUtilities.toAngles(poseData);
 
         //mAdf2DirectionTextView.setText(msg);
-        mAdf2DirectionTextView.setText(TangoPoseUtilities.getQuaternionString(poseData, FORMAT_THREE_DECIMAL));
+
+        //Quaternion temp = new Quaternion(poseData.rotation[3], poseData.rotation[0], poseData.rotation[1], poseData.rotation[2]);
+        //Quaternion tempy = new Quaternion(Math.PI/2, 0, 0, 1);
+        //tempy.normalize();
+        //tempy.multiply(temp);
+
+
+        //temp.angleBetween(tempy);
+        //poseData.rotation[1] += 0.680;
+
+        mAdf2DirectionTextView.setText(msg + TangoPoseUtilities.getQuaternionString(poseData, FORMAT_THREE_DECIMAL));
+
         mAdf2DevicePoseDeltaTextView.setText(Double.toString(Math.abs(distance)));
 
     }
