@@ -38,6 +38,7 @@ import com.mobileinnovationlab.navigationframework.ControlAction;
 import com.mobileinnovationlab.navigationframework.Orientation;
 import com.mobileinnovationlab.navigationframework.WayFinder;
 import com.projecttango.tangoutils.TangoPoseUtilities;
+import com.naiveroboticist.robotmediator.IRobotController;
 
 import org.rajawali3d.math.Quaternion;
 import org.rajawali3d.surface.IRajawaliSurface;
@@ -53,7 +54,7 @@ import java.util.List;
  * delegated to the {@link AreaLearningRajawaliRenderer} class.
  */
 public class AreaLearningActivity extends Activity implements View.OnClickListener,
-        SetADFNameDialog.CallbackListener, SaveAdfTask.SaveAdfListener, PositionUI {
+        SetADFNameDialog.CallbackListener, SaveAdfTask.SaveAdfListener, PositionUI, com.naiveroboticist.interfaces.PositionUI {
 
     private static final String TAG = AreaLearningActivity.class.getSimpleName();
     private static final int SECS_TO_MILLISECS = 1000;
@@ -115,6 +116,8 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     private SaveAdfTask mSaveAdfTask;
 
     private String directionText;
+    private DebugKoffee mDebugKofee;
+    private IRobotController mIrobot;
 
     private TangoPoseData[] mPoses;
     private static final double UPDATE_INTERVAL_MS = 100.0;
@@ -124,6 +127,7 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     private List<Orientation> points;
 
     private WayFinder mWayFinder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,19 +139,35 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
         mIsDebugMode = intent.getBooleanExtra(ALStartActivity.IS_DEBUG_MODE, false);
 
         points = new ArrayList<Orientation>();
-        points.add(new Orientation(Orientation.MOTION_Y, new Pair<Float, Float>(0.00f, 4.80f),0.695f));
-        points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(0.00f, 0.50f),1.100f));
-        points.add(new Orientation(Orientation.MOTION_X, new Pair<Float, Float>(-9.0f, 4.80f),1.100f));
-        //points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
-
+        /*
+        * lab
+        */
+        points.add(new Orientation(Orientation.MOTION_Y, new Pair<Float, Float>(0.00f, 1.50f),0.675f));
+        points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(0.00f, 0.50f),0.180f));
+        points.add(new Orientation(Orientation.MOTION_X, new Pair<Float, Float>(1.00f, 1.50f),0.180f));
+        points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(1.00f, 1.50f),1.18f));
+        points.add(new Orientation(Orientation.MOTION_X, new Pair<Float, Float>(0.00f, 1.50f),1.18f));
+        points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(0.00f, 0.50f),-0.05f));
+        points.add(new Orientation(Orientation.MOTION_Y, new Pair<Float, Float>(0.00f, 0.00f),-0.05f));
+        /*
+         * kitchen
+         *
+         * points.add(new Orientation(Orientation.MOTION_Y, new Pair<Float, Float>(0.00f, 1.50f),0.675f));
+         * points.add(new Orientation(Orientation.ROT, new Pair<Float, Float>(0.00f, 0.50f),1.20f));
+         * points.add(new Orientation(Orientation.MOTION_X, new Pair<Float, Float>(-4.00f, 1.50f),1.20f));
+         * //points.add(new Pair<String, Pair<Float, Float>>("x", new Pair<Float, Float>(-9.00f, 4.80f)));
+        */
         mRenderer = setupGLViewAndRenderer();
 
         setupTextViewsAndButtons(false, false);
 
         //mWayFinder = new WayFinder(getApplicationContext(), mIsLearningMode, mIsConstantSpaceRelocalize, this, mSharedLock, points, mIsDebugMode);
         if(!mIsDebugMode){
-            DebugKoffee mDebugKofee = new DebugKoffee(getApplicationContext(), mSharedLock, this);
+            mDebugKofee = new DebugKoffee(getApplicationContext(), mSharedLock, this);
             mDebugKofee.control(points, new ControlAction(ControlAction.GO));
+        }else{
+            mIrobot = new IRobotController(getApplicationContext(), mSharedLock, this);
+            mIrobot.control(points, new ControlAction(ControlAction.GO));
         }
     }
 
@@ -182,6 +202,12 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if(!mIsDebugMode){
+            mDebugKofee.control(points, new ControlAction(ControlAction.STOP));
+        }else{
+            mIrobot.control(points, new ControlAction(ControlAction.STOP));
+        }
+
     }
 
     /**
@@ -387,8 +413,11 @@ public class AreaLearningActivity extends Activity implements View.OnClickListen
 
         //temp.angleBetween(tempy);
         //poseData.rotation[1] += 0.680;
-
-        mAdf2DirectionTextView.setText(msg + TangoPoseUtilities.getQuaternionString(poseData, FORMAT_THREE_DECIMAL));
+        double roll  = Math.atan2(2*poseData.rotation[1]*poseData.rotation[3] - 2*poseData.rotation[0]*poseData.rotation[2], 1 - 2*poseData.rotation[1]*poseData.rotation[1] - 2*poseData.rotation[2]*poseData.rotation[2]);
+        double pitch = Math.atan2(2 * poseData.rotation[0]*poseData.rotation[3] - 2 * poseData.rotation[1]*poseData.rotation[2], 1 - 2*poseData.rotation[0]*poseData.rotation[0] - 2*poseData.rotation[2]*poseData.rotation[2]);
+        double yaw = Math.asin(2*poseData.rotation[0]*poseData.rotation[1] + 2*poseData.rotation[2]*poseData.rotation[3]);
+        mAdf2DirectionTextView.setText(msg + TangoPoseUtilities.getTranslationString(poseData, FORMAT_THREE_DECIMAL) + "[" + roll + "," + pitch + "," + yaw+"]");
+        //mAdf2DirectionTextView.setText(msg + TangoPoseUtilities.getQuaternionString(poseData, FORMAT_THREE_DECIMAL));
 
         mAdf2DevicePoseDeltaTextView.setText(Double.toString(Math.abs(distance)));
 

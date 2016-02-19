@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B00929B19AE82BF0084CCCA /* Order.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BC2FEFB19AD18A6003FED76 /* Order.h */; };
+		3BC2FEA019AD03DC003FED76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FE9F19AD03DC003FED76 /* Foundation.framework */; };
+		3BC2FEA519AD03DC003FED76 /* HyphenLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BC2FEA419AD03DC003FED76 /* HyphenLib.h */; };
+		3BC2FEA719AD03DC003FED76 /* HyphenLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2FEA619AD03DC003FED76 /* HyphenLib.m */; };
+		3BC2FEAE19AD03DC003FED76 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEAD19AD03DC003FED76 /* XCTest.framework */; };
+		3BC2FEAF19AD03DC003FED76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FE9F19AD03DC003FED76 /* Foundation.framework */; };
+		3BC2FEB119AD03DC003FED76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEB019AD03DC003FED76 /* UIKit.framework */; };
+		3BC2FEB419AD03DC003FED76 /* libHyphenLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FE9C19AD03DC003FED76 /* libHyphenLib.a */; };
+		3BC2FEBA19AD03DC003FED76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BC2FEB819AD03DC003FED76 /* InfoPlist.strings */; };
+		3BC2FEBC19AD03DC003FED76 /* HyphenLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2FEBB19AD03DC003FED76 /* HyphenLibTests.m */; };
+		3BC2FEC719AD040A003FED76 /* HyphenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2FEC619AD040A003FED76 /* HyphenManager.m */; };
+		3BC2FECE19AD0460003FED76 /* EncryptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2FECD19AD0460003FED76 /* EncryptionHelper.m */; };
+		3BC2FEDB19AD0655003FED76 /* TransferService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BC2FECB19AD044F003FED76 /* TransferService.h */; };
+		3BC2FEDD19AD066C003FED76 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEDC19AD066C003FED76 /* CoreBluetooth.framework */; };
+		3BC2FEDF19AD0696003FED76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEDE19AD0696003FED76 /* Security.framework */; };
+		3BC2FEE119AD06C9003FED76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEE019AD06C9003FED76 /* UIKit.framework */; };
+		3BC2FEE319AD0724003FED76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEE219AD0724003FED76 /* MapKit.framework */; };
+		3BC2FEE519AD072D003FED76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC2FEE419AD072D003FED76 /* CFNetwork.framework */; };
+		3BC2FEF919AD09BD003FED76 /* HyphenManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BC2FEC519AD040A003FED76 /* HyphenManager.h */; };
+		3BC2FEFA19AD0A2F003FED76 /* EncryptionHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3BC2FECC19AD0460003FED76 /* EncryptionHelper.h */; };
+		3BC2FEFD19AD18A6003FED76 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2FEFC19AD18A6003FED76 /* Order.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BC2FEB219AD03DC003FED76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC2FE9419AD03DC003FED76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC2FE9B19AD03DC003FED76;
+			remoteInfo = HyphenLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3BC2FE9A19AD03DC003FED76 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 10;
+			files = (
+				3B00929B19AE82BF0084CCCA /* Order.h in CopyFiles */,
+				3BC2FEFA19AD0A2F003FED76 /* EncryptionHelper.h in CopyFiles */,
+				3BC2FEF919AD09BD003FED76 /* HyphenManager.h in CopyFiles */,
+				3BC2FEDB19AD0655003FED76 /* TransferService.h in CopyFiles */,
+				3BC2FEA519AD03DC003FED76 /* HyphenLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3BC2FE9C19AD03DC003FED76 /* libHyphenLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHyphenLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BC2FE9F19AD03DC003FED76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3BC2FEA319AD03DC003FED76 /* HyphenLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HyphenLib-Prefix.pch"; sourceTree = "<group>"; };
+		3BC2FEA419AD03DC003FED76 /* HyphenLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphenLib.h; sourceTree = "<group>"; };
+		3BC2FEA619AD03DC003FED76 /* HyphenLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyphenLib.m; sourceTree = "<group>"; };
+		3BC2FEAC19AD03DC003FED76 /* HyphenLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyphenLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BC2FEAD19AD03DC003FED76 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3BC2FEB019AD03DC003FED76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3BC2FEB719AD03DC003FED76 /* HyphenLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HyphenLibTests-Info.plist"; sourceTree = "<group>"; };
+		3BC2FEB919AD03DC003FED76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3BC2FEBB19AD03DC003FED76 /* HyphenLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyphenLibTests.m; sourceTree = "<group>"; };
+		3BC2FEC519AD040A003FED76 /* HyphenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyphenManager.h; sourceTree = "<group>"; };
+		3BC2FEC619AD040A003FED76 /* HyphenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyphenManager.m; sourceTree = "<group>"; };
+		3BC2FECB19AD044F003FED76 /* TransferService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferService.h; sourceTree = "<group>"; };
+		3BC2FECC19AD0460003FED76 /* EncryptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionHelper.h; sourceTree = "<group>"; };
+		3BC2FECD19AD0460003FED76 /* EncryptionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionHelper.m; sourceTree = "<group>"; };
+		3BC2FEDC19AD066C003FED76 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		3BC2FEDE19AD0696003FED76 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3BC2FEE019AD06C9003FED76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3BC2FEE219AD0724003FED76 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3BC2FEE419AD072D003FED76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3BC2FEFB19AD18A6003FED76 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		3BC2FEFC19AD18A6003FED76 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BC2FE9919AD03DC003FED76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC2FEE519AD072D003FED76 /* CFNetwork.framework in Frameworks */,
+				3BC2FEE319AD0724003FED76 /* MapKit.framework in Frameworks */,
+				3BC2FEE119AD06C9003FED76 /* UIKit.framework in Frameworks */,
+				3BC2FEA019AD03DC003FED76 /* Foundation.framework in Frameworks */,
+				3BC2FEDF19AD0696003FED76 /* Security.framework in Frameworks */,
+				3BC2FEDD19AD066C003FED76 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BC2FEA919AD03DC003FED76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC2FEAE19AD03DC003FED76 /* XCTest.framework in Frameworks */,
+				3BC2FEB119AD03DC003FED76 /* UIKit.framework in Frameworks */,
+				3BC2FEAF19AD03DC003FED76 /* Foundation.framework in Frameworks */,
+				3BC2FEB419AD03DC003FED76 /* libHyphenLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BC2FE9319AD03DC003FED76 = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEA119AD03DC003FED76 /* HyphenLib */,
+				3BC2FEB519AD03DC003FED76 /* HyphenLibTests */,
+				3BC2FE9E19AD03DC003FED76 /* Frameworks */,
+				3BC2FE9D19AD03DC003FED76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BC2FE9D19AD03DC003FED76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FE9C19AD03DC003FED76 /* libHyphenLib.a */,
+				3BC2FEAC19AD03DC003FED76 /* HyphenLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BC2FE9E19AD03DC003FED76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEE419AD072D003FED76 /* CFNetwork.framework */,
+				3BC2FEE219AD0724003FED76 /* MapKit.framework */,
+				3BC2FEE019AD06C9003FED76 /* UIKit.framework */,
+				3BC2FEDE19AD0696003FED76 /* Security.framework */,
+				3BC2FEDC19AD066C003FED76 /* CoreBluetooth.framework */,
+				3BC2FE9F19AD03DC003FED76 /* Foundation.framework */,
+				3BC2FEAD19AD03DC003FED76 /* XCTest.framework */,
+				3BC2FEB019AD03DC003FED76 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BC2FEA119AD03DC003FED76 /* HyphenLib */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEFB19AD18A6003FED76 /* Order.h */,
+				3BC2FEFC19AD18A6003FED76 /* Order.m */,
+				3BC2FECC19AD0460003FED76 /* EncryptionHelper.h */,
+				3BC2FECD19AD0460003FED76 /* EncryptionHelper.m */,
+				3BC2FECB19AD044F003FED76 /* TransferService.h */,
+				3BC2FEC519AD040A003FED76 /* HyphenManager.h */,
+				3BC2FEC619AD040A003FED76 /* HyphenManager.m */,
+				3BC2FEA419AD03DC003FED76 /* HyphenLib.h */,
+				3BC2FEA619AD03DC003FED76 /* HyphenLib.m */,
+				3BC2FEA219AD03DC003FED76 /* Supporting Files */,
+			);
+			path = HyphenLib;
+			sourceTree = "<group>";
+		};
+		3BC2FEA219AD03DC003FED76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEA319AD03DC003FED76 /* HyphenLib-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BC2FEB519AD03DC003FED76 /* HyphenLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEBB19AD03DC003FED76 /* HyphenLibTests.m */,
+				3BC2FEB619AD03DC003FED76 /* Supporting Files */,
+			);
+			path = HyphenLibTests;
+			sourceTree = "<group>";
+		};
+		3BC2FEB619AD03DC003FED76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2FEB719AD03DC003FED76 /* HyphenLibTests-Info.plist */,
+				3BC2FEB819AD03DC003FED76 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BC2FE9B19AD03DC003FED76 /* HyphenLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BC2FEBF19AD03DC003FED76 /* Build configuration list for PBXNativeTarget "HyphenLib" */;
+			buildPhases = (
+				3BC2FE9819AD03DC003FED76 /* Sources */,
+				3BC2FE9919AD03DC003FED76 /* Frameworks */,
+				3BC2FE9A19AD03DC003FED76 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HyphenLib;
+			productName = HyphenLib;
+			productReference = 3BC2FE9C19AD03DC003FED76 /* libHyphenLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3BC2FEAB19AD03DC003FED76 /* HyphenLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BC2FEC219AD03DC003FED76 /* Build configuration list for PBXNativeTarget "HyphenLibTests" */;
+			buildPhases = (
+				3BC2FEA819AD03DC003FED76 /* Sources */,
+				3BC2FEA919AD03DC003FED76 /* Frameworks */,
+				3BC2FEAA19AD03DC003FED76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BC2FEB319AD03DC003FED76 /* PBXTargetDependency */,
+			);
+			name = HyphenLibTests;
+			productName = HyphenLibTests;
+			productReference = 3BC2FEAC19AD03DC003FED76 /* HyphenLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BC2FE9419AD03DC003FED76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Plastic Mobile";
+			};
+			buildConfigurationList = 3BC2FE9719AD03DC003FED76 /* Build configuration list for PBXProject "HyphenLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3BC2FE9319AD03DC003FED76;
+			productRefGroup = 3BC2FE9D19AD03DC003FED76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BC2FE9B19AD03DC003FED76 /* HyphenLib */,
+				3BC2FEAB19AD03DC003FED76 /* HyphenLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BC2FEAA19AD03DC003FED76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC2FEBA19AD03DC003FED76 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BC2FE9819AD03DC003FED76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC2FECE19AD0460003FED76 /* EncryptionHelper.m in Sources */,
+				3BC2FEA719AD03DC003FED76 /* HyphenLib.m in Sources */,
+				3BC2FEFD19AD18A6003FED76 /* Order.m in Sources */,
+				3BC2FEC719AD040A003FED76 /* HyphenManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BC2FEA819AD03DC003FED76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC2FEBC19AD03DC003FED76 /* HyphenLibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BC2FEB319AD03DC003FED76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BC2FE9B19AD03DC003FED76 /* HyphenLib */;
+			targetProxy = 3BC2FEB219AD03DC003FED76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3BC2FEB819AD03DC003FED76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BC2FEB919AD03DC003FED76 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BC2FEBD19AD03DC003FED76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3BC2FEBE19AD03DC003FED76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BC2FEC019AD03DC003FED76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/HyphenLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HyphenLib/HyphenLib-Prefix.pch";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		3BC2FEC119AD03DC003FED76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/HyphenLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HyphenLib/HyphenLib-Prefix.pch";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
+		3BC2FEC319AD03DC003FED76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HyphenLib/HyphenLib-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HyphenLibTests/HyphenLibTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3BC2FEC419AD03DC003FED76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HyphenLib/HyphenLib-Prefix.pch";
+				INFOPLIST_FILE = "HyphenLibTests/HyphenLibTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BC2FE9719AD03DC003FED76 /* Build configuration list for PBXProject "HyphenLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC2FEBD19AD03DC003FED76 /* Debug */,
+				3BC2FEBE19AD03DC003FED76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BC2FEBF19AD03DC003FED76 /* Build configuration list for PBXNativeTarget "HyphenLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC2FEC019AD03DC003FED76 /* Debug */,
+				3BC2FEC119AD03DC003FED76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BC2FEC219AD03DC003FED76 /* Build configuration list for PBXNativeTarget "HyphenLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC2FEC319AD03DC003FED76 /* Debug */,
+				3BC2FEC419AD03DC003FED76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BC2FE9419AD03DC003FED76 /* Project object */;
+}

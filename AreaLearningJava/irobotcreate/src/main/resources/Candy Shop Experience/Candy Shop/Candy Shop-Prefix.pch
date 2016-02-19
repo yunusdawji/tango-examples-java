@@ -1,0 +1,36 @@
+//
+// Prefix header for all source files of the 'Candy Shop' target in the 'Candy Shop' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "Macro.h"
+    #import <CoreData/CoreData.h>
+    #import "CoreData+MagicalRecord.h"
+    #import <CoreBluetooth/CoreBluetooth.h>
+
+#ifdef DEBUG
+#   define BtLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define BtLog(...)
+#endif
+
+#endif
+
+
+//#define kBLEShieldServiceUUIDString @"F9266FD7-EF07-45D6-8EB6-BD74F13620F9"
+//#define kBLEShieldCharacteristicRXUUIDString @"4585C102-7784-40B4-88E1-3CB5C4FD37A3"
+//#define kBLEShieldCharacteristicTXUUIDString @"E788D73B-E793-4D9E-A608-2F2BAFC59A00"
+//#define kBLEShieldCharacteristicReceiveBufferUUIDString @"11846C20-6630-11E1-B86C-0800200C9A66"
+//#define kBLEShieldCharacteristicClearReceiveBufferUUIDString @"DAF75440-6EBA-11E1-B0C4-0800200C9A66"
+
+#define kBLEShieldName @"Biscuit"
+#define kBLEShieldServiceUUIDString @"713d0000-503e-4c75-ba94-3148f18d941e"
+#define kBLEShieldCharacteristicTXUUIDString @"713d0003-503e-4c75-ba94-3148f18d941e"

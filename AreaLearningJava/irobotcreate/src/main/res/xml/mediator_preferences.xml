@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference android:key="telep_host" android:title="Telep Host" android:summary="The hostname or IP of the Telep Server to connect to"/>
+    <EditTextPreference android:key="telep_port" android:title="Telep Port" android:summary="The port number of the Telep server to connect to"/>
+    <EditTextPreference android:key="robot_name" android:title="Robot Name" android:summary="The name of the robot (must match private key name)"/>
+    <EditTextPreference android:key="robot_key" android:title="Robot Key" android:summary="The private key for signing the robot registration message"/>
+    <EditTextPreference android:key="telep_key" android:title="Telep Key" android:summary="The public key to verify the server message signatures"/>
+    <EditTextPreference android:key="default_speed" android:defaultValue="100" android:summary="The initial speed after a stop (mm/s)" android:title="Default Speed"/>
+    <EditTextPreference android:key="speed_increment" android:defaultValue="10" android:summary="Amount to increase/decrease speed (mm/s)" android:title="Speed Increment"/>
+    <EditTextPreference android:key="rotation_speed" android:defaultValue="100" android:summary="Speed to use during rotate commands (mm/s)" android:title="Rotation Speed"/>
+    
+
+</PreferenceScreen>

@@ -53,6 +53,7 @@
             android:label="@string/app_name" 
             android:screenOrientation="nosensor">
         </activity>
+
     </application>
 
 </manifest>

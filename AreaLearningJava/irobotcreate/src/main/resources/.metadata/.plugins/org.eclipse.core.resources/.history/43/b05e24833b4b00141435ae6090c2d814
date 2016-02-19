@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pizza Pizza</string>
+    
+    <string name="place_key">AIzaSyBVKwYa4KhjCB2jbVUMGsu_Pd7T9x5V6PI</string>
+    <string name="static_map">https://maps.googleapis.com/maps/api/staticmap?zoom=15&amp;size=%1$sx%2$s&amp;markers=icon:http://i.imgur.com/yOI7p.png|%3$s,%4$s&amp;sensor=true</string>
+   	<string name="place_api_base">https://maps.googleapis.com/maps/api/place</string>
+   	<string name="geo_api_url">https://maps.googleapis.com/maps/api/geocode/json?sensor=true&amp;address=%1$s canada</string>
+    
+    <string name="pp_area_code">+1888</string>
+    <string name="pp_phone_number">967-1111</string>
+    <string name="pp_phone_number_button">(888) 967-1111</string>
+    <string name="retry">Retry</string>
+    <string name="loading">CHARGEMENT</string>
+    <string name="from">From</string>
+    <string name="back">Précédent</string>
+    <string name="sign_in">Connexion</string>
+    <string name="feedback">Rétroaction</string>
+    <string name="cancel">ANNULER</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="send">Envoyer</string>
+    <string name="ok">OK</string>
+    <string name="on">le</string>
+    <string name="off">Désactiver</string>
+    <string name="done">Terminé</string>
+    <string name="error">Erreur</string>
+    <string name="failed">Échec</string>
+    <string name="save">Enregistrer</string>
+    <string name="saved">ENREGISTRÉ</string>
+    <string name="select">Choisir</string>
+    <string name="updating">Mise à Jour</string>
+    <string name="note">Remarque</string>
+    <string name="add">Ajouter</string>
+    <string name="delete">Effacer</string>
+    <string name="deleting">SUPPRESSION</string>
+    <string name="edit">Modifier</string>
+    <string name="ignore">Ignorer</string>
+    <string name="specify">Donner les détails</string>
+    <string name="dismiss">Annuler</string>
+    <string name="set">Set</string>
+    <string name="at">at</string>
+    <string name="remove">RETIRER</string>
+    <string name="free">GRATUITE</string>
+    <string name="proceed">Procéder</string>
+    <string name="confirm">CONFIRM</string>
+    
+    <!-- Configurator -->
+    <string name="check_out">COMMANDES</string>
+    <string name="no_items">AUCUN ARTICLE</string>
+    <string name="place_your_topping">CHOISIR VOS GARNITURES:</string>
+    <string name="quantity">Quantité:</string>
+    <string name="qty">QTY</string>
+    <string name="btn_add_to_order">Ajouter à la commande</string>
+    <string name="btn_continue">CONTINUER</string>
+    <string name="btn_update">Update</string>
+    <string name="special_instructions">Instructions Spéciales</string>
+    <string name="scroll_down_hint">Scroll down for additional options &#38; toppings below</string>
+    <string name="dialog_abandon_title">Vous voulez abandonner l’article?</string>
+    <string name="dialog_abandon_body">Vous avez apporté des changements de configuration à cet article. Êtes-vous certain que vous souhaitez le laisser sans le mettre à jour dans votre panier?</string>
+    <string name="dialog_abandon_ok">Abandonner</string>
+    <string name="dialog_abandon_close">Retour</string>
+    <string name="dialog_incomplete_title">Incomplete</string>
+    <string name="dialog_incomplete_body">Certaines parties de votre commande sont incomplètes.</string>
+    <string name="dialog_warning_title">Avertissement</string>
+    <string name="dialog_warning_body">Certains articles n’ont pas été configurés.</string>
+
+    
+    <!-- Loading -->
+    <string name="no_network_connection_toast">No network connection found</string>
+    <string name="select_city_or_postal_to_locate">Please select a Pizza Pizza location by city or by postal code. </string>
+    <string name="copyright">&#169; Pizza Pizza 2014 v </string>
+    <string name="loading_upcase">CHARGEMENT</string>
+    <string name="locate_by_city">CHERCHER PAR VILLE</string>
+    <string name="locate_by_postal_code">CHERCHER PAR\nCODE POSTAL</string>
+    <string name="press_to_call">PRESS TO CALL</string>
+    <string name="retry_uppercase">RÉESSAYER</string>
+    <string name="city">VILLE</string>
+    <string name="postal_code">Code Postal</string>
+    <string name="enter_postal_desc">Please enter your postal code to help us to locate nearest restaurant.</string>
+    <string name="try_again">Essayer de nouveau</string>
+    <string name="select_city">Chercher par Ville</string>
+    <string name="search">Recherche</string>
+    <string name="upgrade_now">Upgrade Now</string>
+	
+	<string name="notification_title">Permettre à Pizza Pizza de vous envoyer des messages personnalisés?</string>
+    <string name="notification_message">Les avis peuvent inclure les alertes, les sons et les icônes. Il est possible de les configurer dans les paramètres</string>
+	<string name="notification_allow">OK</string>
+    <string name="notification_deny">Refuser</string>
+    
+    <!-- Menu -->
+    <string name="welcome">Bonjour %1$s!</string>
+    <string name="repeat_last_order">RÉPÉTER LA DERNIÈRE\nCOMMANDE</string>
+    <string name="order_history_upcase">HISTORIQUE\nDES COMMANDES</string>
+    <string name="dash_digital_wallet">Portefeuille\nÉlectronique</string>
+    <string name="dash_menu">MENU</string>
+    <string name="dash_locator">LOCALISATEUR\nDE RESTAURANT</string>
+    <string name="dash_profile">MON\nPROFIL</string>
+    <string name="dash_favorite">COMMANDES\nFAVORITES</string>
+    <!-- <string name="dash_cart">ORDER CART\n/COUPON\nREDEMPTION</string> -->
+    <string name="dash_cart">PANIER DE\nLA COMMANDE</string>
+    <string name="dash_history">HISTORIQUE\nDES COMMANDES</string>
+    <string name="dash_saved_addr">Adresses\nenregistrées</string>
+    <string name="dash_saved_stores">ADRESSE D\'ENLÈVEMENT\nENREGISTRÉ</string>
+    <string name="dash_fun">Amusez-vous</string>
+    <string name="dash_qr_scanner">SCANNEUR DE\nCODES QR</string>
+    <string name="dash_coupon_wallet">Portefeuille\nde bons</string>
+    <string name="phone_call">Appel Téléphonique</string>
+    <string name="phone_call_contents">Vous allez quitter l’application. Êtes-vous certain de vouloir quitter l’application pour cet appel rapide?</string>
+    
+     <!-- Login -->
+    <string name="login">CONNEXION</string>
+    <string name="logout">DÉCONNEXION</string>
+    <string name="reset_pass">Réinitialiser le mot de passe</string>
+    <string name="login_notice">SIGN UP TO ACTIVATE ALL FEATURES</string>
+    <string name="login_information_saved">Vos données de connexion seront enregistrées pour une utilisation ultérieure de l’application.</string>
+    <string name="login_dont_have_account">Si vous n’avez pas de compte Pizza Pizza, vous pouvez en créer un très facilement en moins de 30 secondes.</string>
+    <string name="login_your_new_account">En créant votre compte, vous pourrez simplifier vos commandes. Votre nouveau compte pourra être utilisé aussi bien sur votre cellulaire que sur Internet.</string>
+    <string name="login_create_account">Créer un compte Pizza Pizza</string>
+    
+	<!-- Login intro -->
+    <string name="login_intro_title">Portefeuille Électronique</string>
+    <string name="login_intro_hint">Inscrivez-vous pour gagner du temps et obtenir des récompenses\nen utilisant la fonction de paiement de l’application dans nos restaurants.</string>
+    <string name="login_intro_button">OUVRIR UNE SESSION / INSCRIVEZ-VOUS</string>
+    
+    <!-- My Profile -->
+    <string name="my_profile">Mon profil</string>
+    <string name="email">Adresse électronique</string>
+    <string name="password">Mot de passe</string>
+    <string name="forget_pass_desc">Votre mot de passe a été réinitialisé. Nous avons fait parvenir un mot de passe temporaire à votre adresse électronique enregistrée. Veuillez consulter vos courriels afin de pouvoir ouvrir une session avec votre mot de passe temporaire.  Veillez à remplacer votre mot de passe par un autre qu’il vous sera facile de vous rappeler après l’ouverture de votre session. Vous pouvez modifier votre mot de passe en cliquant sur "Paramètres du compte"</string>
+    <string name="enter_your_email">Entrez votre adresse électronique pour recevoir un nouveau mot de passe</string>
+    <string name="pass_reset_error">Erreur de réinitialisation du mot de passe</string>
+    <string name="pass_reset">Le Mot de passe a été Réinitialisé</string>
+    <string name="pass_reset_success">Consultez vos courriels pour connaître vos nouveaux renseignements d’ouverture de session.</string>
+    <string name="login_failed">L’ouverture de session a échoué</string>
+    <string name="create_account">Créer un Compte</string>
+    <string name="provide_information">Veuillez donner les renseignements obligatoires suivants pour passer des commandes:</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Last Name</string>
+    <string name="area_code">Code régional</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="select_pass">Entrez un mot de passe pour votre compte:</string>
+    <string name="pass_hint">Mot de passe (De 7 à 30 caractères.)</string>
+    <string name="repeat_Pass_hint">Inscrire le Mot de Passe de Nouveau (7 to 30 characters)</string>
+    <string name="receive_communication">Recevoir des messages au sujet de nouvelles promotions, de concours et d’offres de rabais de Pizza Pizza.</string>
+    <string name="receive_notifications">Permettre à Pizza Pizza de vous envoyer des messages personnalisés?</string>
+    <string name="logout_warning">Êtes-vous certain que vous souhaitez retirer un article de la commande?</string>
+    <string name="pp_personal_info_desc">Pizza Pizza will not sell, reuse or otherwise misrepresent your personal information.</string>
+    <string name="saved_payment_info">Renseignements sur le paiement enregistrés</string>
+    <string name="saved_delivery_address">Saved Delivery Addresses</string>
+    <string name="saved_pickup_rest">Saved Pickup Restaurants</string>
+    <string name="favourite_orders">Commandes favorites</string>
+    <string name="change_pass_desc">Si vous désirez modifier votre mot de passe, veuillez en entrer un nouveau:</string>
+    <string name="scan">SCAN</string>
+    
+    <!-- Edit Profile -->
+    <string name="edit_profile">Edit Profile</string>
+    
+     <!-- Store Locator -->
+    <string name="store_locator">localisateur de restaurant</string>
+    <string name="search_hint">Code postal, ville, province</string>
+    <string name="distance_hint">Distance approximative: %1$s km</string>
+    <string name="store_open_hour_open">Ouvrir %1$s</string>
+    <string name="store_open_hour_close">CLOSED %1$s</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="map">Carte</string>
+    <string name="list">Liste</string>
+    <string name="all_time_shown_local">Toutes les heures inscrites sont dans le fuseau horaire du restaurant sélectionné.</string>
+    <string name="restaurant_detail">Renseignements sur le restaurant</string>
+    <string name="to">to</string>
+    
+    <!-- Payment Info -->
+    <string name="payment_info">Renseignements sur le paiement</string>
+    <string name="card_info">Renseignements sur la carte</string>
+    <string name="credit_card">Carte de crédit</string>
+    <string name="meal_card">Carte Repas</string>
+    <string name="club_1111">Club 11-11</string>
+    <string name="card_number">Numéro de la carte</string>
+    <string name="card_number_digit_1519">Numéro de la carte (15-19 chiffres)</string>
+    <string name="card_number_digit_1619">Numéro de la carte (16-19 chiffres)</string>
+    <string name="card_name">Nom due titulaire de la carte (ex \"John Smith\")</string>
+    <string name="ccv_number">CVV numéro</string>
+    <string name="expiration_date">Date d’expiration</string>
+    <string name="pin_number">Numéro d’identification personnel</string>
+    <string name="select_university">Choisir une université</string>
+    <string name="save_cardinfo">Enregistrer les renseignements sur la carte dans l’application</string>
+    <string name="save_cardinfo_desc_credit">Les renseignements sur votre carte de crédit ont été enregistrés de façon sécurisée sur l’iPhone et non sur le site PizzaPizza.ca.</string>
+    <string name="save_cardinfo_desc">Your card information is securely saved only on the phone and not online at PizzaPizza ca.</string>
+    <string name="saving_note_desc">Your %1$s information will be saved only on your device and not on PizzaPizza.ca.</string>
+    <string name="please_select">Veuillez choisir&#8230;</string>
+    <string name="edit_delete_card_title">Supprimer les renseignements sur la carte</string>
+    <string name="delete_card">Supprimer la carte</string>
+    <string name="card_number_digit_19">Numéro de la carte (19 chiffres)</string>
+    <string name="card_number_digit_16">Numéro de la carte (16 chiffres)</string>
+    <string name="card_number_digit_15">Numéro de la carte (15 chiffres)</string>
+	
+    <!-- Saved Address -->
+    <string name="saved_addrs">Adresses enregistrées</string>
+    <string name="save_addr">Enregistrer l’Adresse</string>
+    <string name="edit_addr">Modifier l’adresse</string>
+    <string name="address">Adresse</string>
+    <string name="university_addr">Adresse de l’université</string>
+    <string name="university">Université</string>
+    <string name="nickname">Surnom</string>
+    <string name="nickname_hint">(Ex. Maison ou Bureau)</string>
+    <string name="nickname_hint_univ">(Ex. École ou Bureau)</string>
+    <string name="street_no">Numéro de Rue</string>
+    <string name="street_name">Rue</string>
+    <string name="street_ext">Poste</string>
+    <string name="apartment">Appartement (facultatif)</string>
+    <string name="apartment_no">No d’App</string>
+    <string name="buzzer">Code d’entrée : </string>
+    <string name="buzzer_no">Buzzer No. (facultatif)</string>
+    <string name="buzzer_number">Buzzer Number</string>
+    <string name="province">Province</string>
+    <string name="phone">Téléphone: </string>
+    <string name="phone_no">Numéro de téléphone</string>
+    <string name="extension">Poste</string>
+    <string name="ext">Poste</string>
+    <string name="front_door">Poste</string>
+    <string name="back_door">Porte arrière</string>
+    <string name="set_as_default_addr">Définir comme adresse par défaut</string>
+    <string name="building_name">Nom du bâtiment</string>
+    <string name="details">Détails</string>
+    <string name="room">Room</string>
+    <string name="room_number">Numéro de pièce</string>
+    <string name="bldg_ent">Entrée du bâtiment (facultatif)</string>
+    <string name="door">Porte</string>
+    <string name="phone_num">Numéro de téléphone</string>
+    <string name="select_university_first">Sélectionnez d’abord l’université</string>
+    <string name="dialog_apt_buzzer_title">Avertisseur dans l’Appartement</string>
+    <string name="dialog_apt_buzzer_content">Votre appartement demande-t-il un code à l’entrée? Si c’est le cas, veuillez nous donner le code pour que nous puissions vous livrer rapidement votre pizza.</string>
+    <string name="dialog_apt_buzzer_ignore">Ignorer</string>
+    <string name="dialog_st_name_not_found">Street Name Not Found</string>
+    <string name="dialog_st_name">Rue</string>
+    <string name="dialog_area_code">Code régional</string>
+    <string name="dialog_phone_number">Numéro de téléphone</string>
+    <string name="dialog_delete_default_title">Supprimer l’Adresse</string>
+    <string name="dialog_delete_default_content">Vous essayez de supprimer l’adresse par défaut. Veuillez choisir une autre adresse par défaut et supprimer celle-ci.</string>
+    <string name="dialog_delete_addr_title">Supprimer l’Adresse?</string>
+    <string name="dialog_delete_addr_content">Souhaitez-vous réellement supprimer cette adresse?</string>
+    <string name="no_saved_addresses">Aucune Adresse\nEnregistrée</string>
+    <string name="is_default">Par défaut</string>
+    <string name="btn_delete_address">Supprimer l’Adresse</string>
+   	
+
+    <!-- Saved Restaurants -->
+    <string name="saved_rest">Restaurants enregistrés</string>
+    <string name="no_saved_rest">Aucun Restaurant\n Enregistré</string>
+    
+    <!-- Order Cart -->
+    <string name="cart">Panier</string>
+    <string name="delivery_or_pickup">Livraison ou À emporter</string>
+    <string name="delivery_or_pickup_desc">Pour que nous puissions vous montrer le total exact, nous devons savoir si vous souhaitez opter pour la livraison ou pour une commande à emporter. Ne vous en faites pas, vous pourrez changer votre choix plus tard</string>
+    <string name="delivery">Livraison</string>
+    <string name="pickup">Paiement</string>
+    <string name="format_qty">Quantité: %1$s</string>
+    <string name="incomplete_order">Commande incomplète</string>
+    <string name="incomplete_order_desc">Selon nos dossiers, vous avez une commande incomplète. Voudriez-vous récupérer cette commande?</string>
+    <string name="no_items_in_cart">AUCUN ARTICLE\nDANS VOTRE PANIER</string>
+    <string name="no_items_in_cart_desc">Please add one or more items\nfrom the menu to proceed.</string>
+    <string name="remove_order_item">Retirer un Article de la Commande</string>
+    <string name="remove_order_item_desc">Êtes-vous certain de vouloir retirer un article de la commande?</string>
+    <string name="recommended_for_order">Recommandé pour votre commande</string>
+    <string name="pls_provide_address">Please provide a delivery address</string>
+    <string name="add_instructions">Ajouter des Instructions Spéciales</string>
+    <string name="pls_provide_rest">Please provide a pickup restaurant.</string>
+    <string name="payment">Paiement</string>
+    <string name="payment_method">Méthode de Paiement</string>
+    <string name="choose_method">Choisir le mode de paiement</string>
+    <string name="setup_digital_wallet">Configurez votre portefeuille électronique maintenant pour l’utiliser comme moyen de paiement</string>
+    <string name="select_time">Sélectionnez l’option Livraison &#47; À emporter</string>
+    <string name="order_now">Commander maintenant</string>
+    <string name="immediately">Immédiatement</string>
+    <string name="future_order">Commande à venir</string>
+    <string name="finalize_order">Conclure la commande</string>
+    <string name="your_order">Your Order</string>
+    <string name="pay_at_rest">Payer au restaurant</string>
+    <string name="pay_at_door">Payer à la porte</string>
+    <string name="pay_with_digital_wallet">Payer avec le porte-feuille électronique</string>
+    <string name="pay_within_app">Payer avec l’application</string>
+    <string name="cash">Comptant</string>
+    <string name="debit">Carte de débit</string>
+    <string name="charge_applies">&#40;&#36;1.00 Des frais s’appliquent&#41;</string>
+    <string name="info_required">Renseignements Requis</string>
+    <string name="info_required_desc">%1$s information needs to be provided first before selecting option</string>
+    <string name="online">online</string>
+    <string name="rest_closed">Restaurant Closed</string>
+    <string name="upsell_title">YOU MAY ALSO WANT</string>
+    <string name="upsell_desc">Add a <B>%1$s</B> to your order at a special price only now with this order now.</string>
+    <string name="redeeming_prize">Échange de Prix</string>
+    <string name="redeeming_prize_desc">You have received a free %1$s with your last order.</string>
+    <string name="discard_prize">Jeter le Prix</string>
+    <string name="discard_prize_desc">Les articles ne sont échangeables que lors des commandes passées à partir de votre iPhone; vous ne pourrez pas échanger votre prix si vous le retirer de votre panier.</string>
+    <string name="order_minimum">Commande minimum</string>
+    <string name="add_more_items">Ajouter Plus d’Articles</string>
+    <string name="today">AUJOURD\'HUI</string>
+    <string name="unable_place_order">Impossible de passer la commande</string>
+    <string name="plz_select">Veuillez choisir d’abord l’adresse de livraison ou le restaurant pour commande à emporter.</string>
+    <string name="schedule_ur_order">Sélectionner une date et une heure pour la commande à venir</string>
+    <string name="scroll_down_hint_options">Faites défiler la page vers le bas pour d’autres options</string>
+    <string name="delivery_buzzer">Code d’entrée %1$s,&#160;</string>
+    <string name="delivery_suite">Suite %1$s,&#160;</string>
+    <string name="loyalty_enter_num">Ajouter au panier pour accumuler un pourcentage</string>
+    <string name="dialog_edit_delete">Would you like to delete or edit your card information?</string>
+    <string name="dialog_loyalty_card">Club 11-11</string>
+    
+    <!-- Checkout Panel -->
+    <string name="sub_total">SOUS-TOTAL&#58;</string>
+    <string name="gst_hst">Taxe de vente</string>
+    <string name="pst">TVP&#58;</string>
+    <string name="delivery_charge">FRAIS DE LIVRAISON&#58;</string>
+    <string name="discount">Rabais&#58;</string>
+    <string name="total">TOTAL&#58;</string>
+    <string name="checkout">Payer</string>
+    <string name="add_on">ADD ON</string>
+    <string name="use_coupon">UTILISER UN BON</string>
+    <string name="place_order">PASSER UNE COMMANDE</string>
+    <string name="add_ons">Ajouts</string>
+    
+    <!-- Order Confirmation -->
+    <string name="order_arrive_in">YOUR ORDER\nWILL ARRIVE IN&#58;</string>
+    <string name="order_arrive_in_menu">VOTRE COMMANDERA ARRIVERA DANS&#58;</string>
+    <string name="order_ready_in">YOUR ORDER\nWILL BE READY IN&#58;</string>
+    <string name="order_ready_in_menu">VOTRE COMMANDE SERA\nPRÊTE DANS&#58;</string>
+    <string name="your_order_confirmation">Your Order Confirmation</string>
+    <string name="order_number">Numéro de Commande&#58; %1$s</string>
+    <string name="your_order_placed_at">Votre commande a été passée à %1$s</string>
+    <string name="delivery_hint">Thank You for ordering with Pizza Pizza. Veuillez vérifier soigneusement votre adresse et les détails de votre commande.</string>
+    <string name="pickup_hint">Thank You for ordering with Pizza Pizza. Veuillez vérifier les détails de la commande ci-dessous.</string>
+    <string name="delivery_to">Envoyer à:\n%1$s</string>
+    <string name="pikcup_from">À emporter:\n%1$s</string>
+    <string name="store_no">Store &#035;%1$s</string>
+    <string name="delivery_instructions">Delivery Instructions: %1$s</string>
+    <string name="order_loyalty_title_join">Joignez le Club et commencez à accumuler un pourcentage de la valeur en argent sur chacune de vos transactions!</string>
+    <string name="order_loyalty_title_earned">Vous avez encore accumulé un pourcentage de la valeur en argent sur votre transaction!</string>
+    <string name="order_loyalty_desc_join1">Club 11-11 members earn cash back on every purchase, so earn some dough with your next.</string>
+    <string name="order_loyalty_desc_join2">Apprenez-en plus sur pizzapizza.ca</string>
+    <string name="order_loyalty_num_visits_desc">Échangez le pourcentage après %1$s autres commandes</string>
+    <string name="order_loyalty_desc_earned1">Continuez d’accumuler un pourcentage jusqu’à ce que vous ayez effectué 10 commandes, puis échangez votre pourcentage total lors de la 11e commande.</string>
+    <string name="order_loyalty_desc_earned2">Visitez pizzapizza.ca à partir d’un ordinateur de bureau pour connaître le pourcentage accumulé à ce jour.</string>
+    <string name="back_to_your_receipt">RETOUR À VOTRE REÇU</string>
+
+	 <!-- OrderModified -->
+    <string name="cart_has_modified">Le panier a été modifié!</string>
+    <string name="price_changed_desc">Les articles suivants ont été retirés de votre panier parce qu’ils ne sont pas offerts au restaurant que vous avez sélectionné: </string>
+    <string name="item_not_available_desc">Les articles suivants ont été retirés de votre panier parce qu’ils ne sont pas offerts au restaurant que vous avez sélectionné:</string>
+    <string name="cart_item">ARTICLE</string>
+    <string name="cart_quantity">Quantité</string>
+    <string name="cart_total">TOTAL</string>
+    
+    <!-- Order History -->
+    <string name="order_history">HISTORIQUE DES COMMANDES</string>
+    <string name="order_history_footer">Veuillez noter que Pizza Pizza n’enregistre que vos cinq dernières commandes.</string>
+    <string name="order_again">ORDER\nAGAIN</string>
+    <string name="no_order_histories">NO ORDERS\nFOUND</string>
+    <string name="no_last_order">AUCUN DERNIÈRE\nCOMMANDE</string>
+    <string name="dialog_unavailable_item_title">Ces articles ne sont plus offerts</string>
+    <string name="dialog_unavailable_item_content">Nous avons constaté que cette commande comprend des articles non valides en ce moment. Ces articles ne seront pas ajoutés à votre panier.</string>
+    
+    <!-- Favorite Order -->
+    <string name="fav">Préf</string>
+    <string name="favourites">Commandes préférées</string>
+    <string name="favourite_footer">Please note that Pizza Pizza only stores your last five favourites.</string>
+    <string name="dialog_favourite_label">Marque préférée</string>
+    <string name="dialog_favourite_body">Veuillez entrer votre attribut préféré pour cette commande.</string>
+    <string name="dialog_favourite_delete_title">Delete Favourite</string>
+    <string name="dialog_favourite_delete_content">Are you sure you want to delete this favourite?</string>
+    <string name="no_favourites">NO FAVOURITE\nORDERS FOUND</string>
+    
+    <!-- Loyalty Card -->
+    <string name="loyalty_desc">Vous êtes déjà membre du Club 11-11 de Pizza Pizza? Ajoutez votre numéro de carte à votre profil pour accumuler un pourcentage de toutes vos commandes, y compris celles passées à l’aide de l’application!</string>
+    <string name="loyalty_save_card_info">Save card information in app</string>
+    <string name="loyalty_save_card_info_desc">Your card information is securely saved only on the iPhone and not online at PizzaPizza.ca</string>
+    <string name="loyalty_save_number">Save as my new number</string>
+	<string name="loyalty_dont_ask">Don\'t ask again</string>
+	<string name="loyalty_scan_copy">Passez le numéro de carte du Club 11-11 inscrit dans l’application devant le lecteur optique dans les restaurants Pizza Pizza participants pour accumuler ou échanger des points sur toutes vos commandes. Il vous suffit d’entrer « Lecteur optique » pour que votre code QR s’affiche. Vous pouvez ensuite le passer devant le lecteur optique comme une carte ordinaire – mais directement de votre téléphone!</string>
+	<string name="loyalty_save_dialog_title">Réussite!</string>
+    <string name="loyalty_save_dialog_body">Votre numéro de carte a été enregistré.</string>
+    
+    <!-- Coupon Capture -->
+    <string name="qr_scanner">Scanneur de codes QR</string>
+    <string name="enter_coupon_code">ENTREZ LE CODE DU BON\nMANUELLEMENT</string>
+    <string name="hover_over_coupon_code">Placer la souris sur le code du bon</string>
+    <string name="try_to_minimize">Tenter de minimiser les reflets et les ombres.</string>
+    <string name="hint">CONSEIL&#58;</string>
+    <string name="tap_the_code">tap the code to focus.</string>
+    <string name="coupon_scanned">Bon passé au lecteur optique</string>
+    <string name="add_to_cart">Mettre dans le panier</string>
+    <string name="delete_coupon">Effacer</string>
+    <string name="save_to_wallet">Save to Coupon Wallet</string>
+    <string name="sorry">Désolé!</string>
+    <string name="add_coupon">Ajouter un Bon</string>
+    <string name="add_coupon_desc">Veuillez entrer le code de bon que vous souhaitez utiliser.</string>
+    <string name="coupon_code">Code de Bon</string>
+    <string name="apply_coupon">Apply Coupon</string>
+    <string name="scan_coupon">SCAN COUPON</string>
+    <string name="coupon_save_for_later">Enregistrer pour plus tard</string>
+    <string name="coupon_saved">Bon Enregistré</string>
+    
+    <!-- Fun Zone -->
+    <string name="fun_zone_text">Grattez pour gagner des articles gratuits de notre délicieux menu. Chaque commande passée à partir d’un cellulaire est gagnante!</string>
+    
+    <!-- Error Message -->
+    <string name="invalid_format">Invalid Format</string>
+    <string name="incomplete_fields">Incomplete Fields</string>
+    <string name="error_msg_having_trouble_connecting">Nous éprouvons quelques difficultés à vous connecter au système. Veuillez vous assurer que votre appareil est connecté au WiFi ou à la chaîne de connexion.</string>
+    <string name="error_msg_force_upgrade">Software Update</string>
+    <string name="error_msg_force_upgrade_desc">There is a mandatory upgrade available. Please download now.</string>
+    <string name="error_msg_restaurant_not_found">Le restaurant n’a pas pu être trouvé</string>
+    <string name="error_msg_restaurant_not_found_desc">Aucun restaurant n’a pu être trouvé dans votre région. Veuillez entrer un code postal ou une ville afin de chercher manuellement.</string>
+    <string name="error_msg_complete_fields">Please complete all fields before submitting the form</string>
+    <string name="error_msg_complete_fav_label">Please complete the field for a label before submitting the form</string>
+    <string name="error_msg_st_name_lenght">Street name is too short.\n(The minimum length is 3 characters)</string>
+    <string name="error_msg_area_code_lenght">Area code is too short.\n(The length must be 3 characters)</string>
+    <string name="error_msg_phone_num_lenght">Phone number is too short.\n(The length must be 7 characters)</string>
+    <string name="error_msg_loyalty_num_lenght">Card number is too short.\n(The length must be more then 16 characters)</string>
+    <string name="error_msg_loyalty_num_incomplete">Please enter a loyalty card number you wish to use.</string>
+    <string name="error_msg_pass_not_mach">Votre mot de passe est erroné.</string>
+    <string name="error_msg_pass_length_wrong">Le mot de passe est trop court ou trop long.</string>
+    <string name="error_msg_user_id_in_use">The user ID you have selected is already in use. Please try another email address.</string>
+    <string name="error_msg_email_error">Veuillez vérifier que vous vous avez bien entré la bonne adresse électronique et essayez de nouveau.</string>
+    <string name="error_msg_email_not_valid">Votre adresse électronique ou votre mot de passe est erroné.</string>
+    <string name="error_msg_pass_lenght">Le mot de passe est trop court ou trop long.</string>
+    <string name="error_msg_postal_not_valid">Porstal code is not valid format.</string>
+    <string name="error_msg_login_failed">Veuillez essayer d’ouvrir une session de nouveau.</string>
+    <string name="error_msg_cant_find_location">Nous n’avons pas pu trouver cet emplacement, veuillez effectuer une nouvelle recherche.</string>
+    <string name="error_msg_scan_coupon">An error ocured while scanning. Please note that only Pizza Pizza QR code can be scanned with this app.</string>
+    <string name="error_unable_complete_order">We are unable to complete your order.</string>
+    <string name="error_msg_rest_closed">We are unable to complete your order as the restaurant is closed. You can either set your order for a future time or cancel the current order.</string>
+   	<string name="error_msg_st_name_not_found">Nous n’avons pas pu trouver le nom de votre rue dans notre système. Veuillez vérifier que le nom de la rue que vous avez entré est exact.</string>
+   	<string name="error_msg_no_service_address">We do not have delivery service for this address. You can choose to pick up from your closest Pizza Pizza store.</string>
+    <string name="error_msg_surcharge">Your order must be a minimum of $%1$s to be eligible for %3$s. Please select an additional menu option to meet the minimum amount. We have a wide variety of chicken, shrimp and garlic bread to complement your order. \nIf you would like to proceed, a surcharge of $%2$s will apply.</string>
+    <!--<string name="error_msg_scan_coupon">We can not scan your coupon, please try again!</string>-->
+    <string name="error_msg_unable_place_order">Une erreur de serveur inconnue s’est produite lors de la soumission de votre commande. \nVeuillez essayer de nouveau.</string>
+    <string name="error_msg_loyalty_title">Oups!</string>
+    <string name="error_msg_loyalty_fail">Invalid card number entered.</string>
+    <string name="error_msg_loyalty_not_registered">Please register your card at pizzapizza.ca.</string>
+	<string name="error_msg_no_location">Location Not Found</string>
+	<string name="error_msg_no_location_desc">Please turn on your location service and try again.</string>
+	<string name="error_msg_no_coupon_code">Please enter coupon code</string>
+	<string name="error_msg_coupon_failed_to_reserve">Une erreur s’est produite lors de l’utilisation d’un code de bon. Veuillez essayer de nouveau.</string>
+	<string name="error_msg_coupon_failed_to_insert_wallet">Coupon code is expired, already used or invalid.</string>
+	<string name="error_msg_coupon_failed_to_delete_coupon">Failed to delete coupon. Please try again later.</string>
+	<string name="error_msg_invalid_credit_card_title">Renseignements sur la carte</string>
+	<string name="error_msg_invalid_credit_card">Oups! Votre numéro de carte de crédit est erroné</string>
+	
+	<string name="error_msg_field_empty_pre">Enter</string>
+	<string name="error_msg_field_short_suf">is too short</string>
+	<string name="error_msg_field_long_suf">is too long</string>
+	
+	<string name="field_credit_card_number">Credit card number</string>
+	<string name="field_card_number">Numéro de la carte</string>
+	<string name="field_pin">NIP</string>
+	<string name="field_name">NAME</string>
+	<string name="field_ccv">CCV</string>
+	
+    <string name="action_settings">Settings</string>
+    
+    <string name="send_to_a_friend">Envoyer à un ami</string>
+	<string name="terms_and_conditions">Voir les modalités et conditions</string>
+	<string name="activity_terms_and_conditions">Terms and Conditions</string>
+	<string name="redeemable_on_your_next_android_order">Échangeable lors de votre prochaine commande passée à partir de votre Android</string>
+    <string name="android_app_feedback">Android App Feedback</string>
+    <string name="dialog_remove_saved_store">Would you like to delete this saved restaurant?</string>
+    <string name="my_favorite_orders">Commandes favorites</string>
+    <string name="select_credit_card_type">Veuillez choisir un type de carte de crédit.</string>
+    <string name="select_card_exp_date">Select card expiration date</string>
+    <string name="credit_card_expired">La carte de crédit est déjà expirée.</string>
+    <string name="connection_error">Erreur de Connexion</string>
+
+
+    <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+    <string name="your_pickup_time">Votre heure de commande pour emporter est à</string>
+    <string name="your_delivery_time">Votre heure de livraison de la commande est à </string>
+    <string name="default_address">Default Address</string>
+    <string name="desc_rate_app">Si vous avez aimé utiliser PizzaPizza, voudriez-vous prendre un instant pour l’évaluer? Merci de nous aider!</string>
+    <string name="rate_now">RATE NOW</string>
+    <string name="remind_me_later">M’envoyer un rappel plus tard</string>
+    <string name="no_thanks">Non, merci</string>
+    <string name="no_thanks2">Non, merci</string>
+
+    <string name="orderconfirmation_test_string">PICKUP FROM:\nStore #123\n 1234 TESTEST STREETSTREET 123, CITY\nASDFGH\nASDFGH</string>
+
+    <!-- Coupon Wallet-->
+    <string name="actionbar_coupon">Portefeuille de bons</string>
+    <string name="actionbar_coupon_details">Coupon Details</string>
+    <string name="no_coupons">NO\nCOUPONS</string>
+    <string name="scan_code">SCAN</string>
+    <string name="pls_enter_coupon">Please enter coupon code or scan</string>
+    <string name="normal">NORMAL</string>
+    <string name="expires">"EXPIRATION: "</string>
+    <string name="expired"><b>Expiré</b></string>
+    <string name="already_redeemed">ALREADY REDEEMED</string>
+
+    <!-- Pay in Restaurant -->
+    <string name="actionbar_pay_in_store">Payer au Restaurant</string>
+    <string name="actionbar_digital_wallet">Portefeuille Électronique</string>
+    <string name="actionbar_pay_in_store_select_card_title">Sélectionner une carte</string>
+    <string name="pay_in_store_setup">CONFIGURER MAINTENANT</string>
+    <string name="pay_in_store_no_card">Aucune carte dans\nle portefeuille électronique</string>
+    <string name="pay_in_store_no_card_text">Configurez votre portefeuille \nélectronique pour l’utiliser comme \nmoyen de paiement facile lors de \nvotre prochaine commande à l’un de nos restaurants.</string>
+    <string name="pay_in_store_select_card_desc">Select which card you\'ll like to add as your\npayment of choice:</string>
+    <string name="pay_in_store_select_card_visa">VISA</string>
+    <string name="pay_in_store_select_card_master">MASTERCARD</string>
+    <string name="pay_in_store_select_card_ae">AMERICAN EXPRESS</string>
+    <string name="pay_in_store_select_card_meal">STUDENT MEAL CARD</string>
+    <string name="pay_in_store_select_card_pizza">Club 11&#8211;11</string>
+    <string name="pay_in_store_tap_to_pay">Toucher pour payer</string>
+    <string name="pay_in_store_qrcard_scan">PASSER LE CODE QR AU\nLECTEUR OPTIQUE POUR PAYER</string>
+    <string name="pay_in_store_qrcard_topay">To pay for your purchase</string>
+    <string name="pay_in_store_confirm_tltie">Please confirm a purchace of</string>
+    <string name="pay_in_store_tran_complete_title">TRANSACTION COMPLETE</string>
+    <string name="pay_in_store_tran_incomplete_title">TRANSACTION INCOMPLETE</string>
+    <string name="pay_in_store_meal_card_note">You can only save 1 meal card.\nSaving this card will erase previously saved card.</string>
+    <string name="pay_in_store_pizza_card_note">You can only save 1 Pizza Pizza card.\nSaving this card will erase previously saved card.</string>
+    <string name="pay_in_store_access_faster_title">Accédez plus rapidement à votre portefeuille électronique!</string>
+    <string name="pay_in_store_access_faster_message">Placez votre téléphone à l’horizontale alors qu’il affiche l’écran d’accueil pour un paiement rapide et facile dans nos restaurants.</string>
+    <string name="pay_in_store_confirm_order">Please confirm a purchase of $%.2f.</string>
+    <string name="pay_in_store_confirm_remaining">Please confirm a remaining purchase of $%.2f.</string>
+    <string name="pay_in_store_timeout">Les données de la commande n’ont pas été reçues.  Veuillez essayer de nouveau.</string>
+    
+    <string name="pay_in_store_complete_title">Payment Successful</string>
+    <string name="pay_in_store_complete_message">Your confirmation code is: %1$s \n Your authorization code is: %2$s </string>
+    <string name="pay_in_store_complete_notification_message">Your confirmation code is: %s </string>
+    <string name="pay_in_store_complete_failed">Payment Failed</string>
+    <string name="pay_in_store_complete_blocked">Digital wallet payments are currently disabled.</string>
+    
+    <!-- Introduction page -->
+    <string name="intro_page1_text">Nous offrons deux nouvelles façons faciles et pratiques de payer dans nos restaurants.</string>
+    <string name="intro_page1_digital">PORTEFEUILLE/nÉLECTRONIQUE</string>
+    <string name="intro_page1_coupon">PORTEFEUILLE/nDE BONS</string>
+    <string name="intro_page2_title">PORTEFEUILLE ÉLECTRONIQUE</string>
+    <string name="intro_page2_text">Enregistrez maintenant vos cartes de crédit, votre carte du Club 11&#8211;11 et votre carte repas dans votre portefeuille électronique de l’application Pizza Pizza pour un paiement rapide et facile.</string>
+    <string name="intro_page2_hint1">Ajoutez davantage de cartes\nde paiement dans votre portefeuille en\nappuyant sur le bouton\n \"+\"</string>
+    <string name="intro_page2_hint2">Tap this button\nto go to the\npayment screen</string>
+    <string name="intro_page2_hint3">Consultez les\nrenseignements\n sur votre carte affichés ici</string>
+    <string name="intro_page3_text">Placez votre téléphone à l’horizontale alors qu’il affiche l’écran d’accueil pour un paiement rapide et facile dans nos restaurants.</string>
+    <string name="intro_page3_hint1">Passer le code QR\nau lecteur optique\npour terminer la transaction</string>
+    <string name="intro_page3_hint2">Passer le code QR\nau lecteur optique\npour terminer la transaction</string>
+    <string name="intro_page3_hint3">Tap \"Done\"\nto get back to\nthe previous\nscreen with\nyour card list</string>
+    <string name="intro_page4_title">Portefeuille de bons</string>
+    <string name="intro_page4_text">Now you can save your coupons in app to use on future Pizza Pizza purchases.</string>
+    <string name="intro_page4_hint1">Add more\ncoupons by\ntapping the\n\"+\" button</string>
+    <string name="intro_page4_hint2">Check the expiry\ndate of the\ncoupon here</string>
+    <string name="intro_page4_hint3">Ajoutez le bon à\nvotre panier en appuyant\nsur l’un de\nces boutons</string>
+    <string name="intro_page5_text">C’est si simple d’enregistrer. Il vous suffit d’entrer un numéro de bon et de l’échanger au moment de passer à la caisse, en payant avec l’application, ou en restaurant en passant le code QR au lecteur optique.</string>
+    <string name="intro_page5_hint1">The coupon\ntype is shown\nhere</string>
+    <string name="intro_page5_hint2">Passer le code QR\nau lecteur optique pour\néchanger un bon</string>
+    <string name="intro_page5_hint3">Add the\ncoupon to\nyour Cart by\ntapping one of\nthese buttons</string>
+    
+    <!-- promo view -->
+    <string name="add_to_coupon_wallet">ADD TO COUPON WALLET</string>
+    <string name="locate_nearest_restourant">LOCATE NEAREST RESTAURANT</string>
+    <string name="dismiss_promo">@string/dismiss</string>
+    <string name="valid">Valid</string>
+        
+        
+        
+</resources>

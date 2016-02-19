@@ -1,3 +1,3 @@
-include ':app', ':navigationframework', ':debugkoffee'
+include ':app', ':navigationframework', ':debugkoffee', ':irobot', ':irobotcreate'
 include ':TangoUtils'
 project(':TangoUtils').projectDir = new File('../TangoUtils/app')

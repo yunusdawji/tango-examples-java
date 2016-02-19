@@ -1,0 +1,28 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.naiveroboticist.robotmediator">
+
+    <application android:allowBackup="true" android:label="@string/app_name">
+        <service
+            android:label="IRobot Communication"
+            android:name=".IRobotCommunicationService"
+            android:process=":remote"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="com.naiveroboticist.robotmediator.IRobotCommunicationService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="com.naiveroboticist.robotmediator.IRobotCommunicationService"
+                android:resource="@xml/device_filter" />
+            <intent-filter>
+                <action
+                    android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </service>
+    </application>
+
+</manifest>

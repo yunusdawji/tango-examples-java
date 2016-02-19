@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pm="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:stretchColumns="*"
+    android:weightSum="8" >
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/bg_welcomebar"
+            android:id="@+id/welcome_container"
+            android:gravity="center_vertical">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                >
+
+            <com.pizzapizza.views.PPTextView
+                android:id="@+id/welcome"
+                style="@style/white_border_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:text="@string/welcome"
+                android:maxLines="1"
+                android:visibility="visible"/>
+
+                <com.pizzapizza.views.PPTextView
+                        android:id="@+id/txt_countdown"
+                        style="@style/white_border_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Your order will be ready in: 00:00"
+                        android:visibility="gone"
+                        android:maxLines="1"
+                        android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <com.pizzapizza.views.MenuPagerView
+        android:id="@+id/special"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.4"
+        android:visibility="visible"
+        pm:show_indicator="true" />
+
+    <!-- pading = margin_4times -->
+
+
+    <!--
+        View
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <Button
+            android:id="@+id/pay_in_store"
+            style="@style/white_border_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_green"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/pay_in_store" /
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_5times"
+        android:layout_weight="1"
+        android:weightSum="15" >
+
+        <com.pizzapizza.views.PPTextView
+             android:id="@+id/repeat_order"
+            style="@style/green_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_3times"
+            android:layout_weight="5"
+            android:onClick="onClick"
+            android:text="@string/repeat_last_order" />
+
+        <com.pizzapizza.views.PPTextView
+             android:id="@+id/my_favorite_orders"
+            style="@style/green_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_3times"
+            android:layout_marginRight="@dimen/margin_3times"
+            android:layout_weight="5"
+            android:onClick="onClick"
+            android:text="@string/my_favorite_orders" />
+        <!-- android:text="@string/order_history" -->
+        
+        <com.pizzapizza.views.PPTextView
+             android:id="@+id/pay_in_rest"
+            style="@style/green_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/margin_3times"
+            android:layout_weight="5"
+            android:onClick="onClick"
+            android:text="@string/actionbar_pay_in_store" />
+
+    </LinearLayout>
+
+   <com.pizzapizza.views.TopMenuPager
+       android:id="@+id/top"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_marginTop="@dimen/margin_5times"
+       android:layout_weight="3"
+       pm:show_indicator="false" />
+
+</LinearLayout>

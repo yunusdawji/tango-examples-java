@@ -1,0 +1,8 @@
+MODULES_MANAGER_V2
+manage|/Users/yunusdawji/Documents/workspace/myapp/manage.py
+myapp.__init__|/Users/yunusdawji/Documents/workspace/myapp/myapp/__init__.py
+myapp.models|/Users/yunusdawji/Documents/workspace/myapp/myapp/models.py
+myapp.settings|/Users/yunusdawji/Documents/workspace/myapp/myapp/settings.py
+myapp.urls|/Users/yunusdawji/Documents/workspace/myapp/myapp/urls.py
+myapp.views|/Users/yunusdawji/Documents/workspace/myapp/myapp/views.py
+myapp.wsgi|/Users/yunusdawji/Documents/workspace/myapp/myapp/wsgi.py

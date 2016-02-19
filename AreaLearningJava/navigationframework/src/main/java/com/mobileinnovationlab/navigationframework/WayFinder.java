@@ -241,10 +241,12 @@ public class WayFinder {
                 // Make sure to have atomic access to Tango Data so that
                 // UI loop doesn't interfere while Pose call back is updating
                 // the data.
+                Triplet distance = new Triplet(0,0,0);
                 synchronized (mSharedLock) {
                     // Check for Device wrt ADF pose, Device wrt Start of Service pose,
                     // Start of Service wrt ADF pose(This pose determines if device
                     // the is relocalized or not).
+
                     if (pose.baseFrame == TangoPoseData.COORDINATE_FRAME_AREA_DESCRIPTION
                             && pose.targetFrame == TangoPoseData.COORDINATE_FRAME_DEVICE) {
                         mPoses[0] = pose;
@@ -264,113 +266,148 @@ public class WayFinder {
                         }
 
 
+
+
                         if(!mIsDebug) {
                             if (points.size() != 0) {
 
-                                pose.rotation[1] += 0.680;
+                                pose.rotation[1] += 0.675;
                                 if (points.get(0).getType().equals(Orientation.MOTION_Y)) {
                                     //lets do something with it
                                     Pair<Float, Float> pair = points.get(0).getXy();
 
-                                    if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.1 ){
+
+                                    distance.setSecond(Math.abs(pair.first.doubleValue() - pose.translation[0]));
+
+                                    if (pair.first.doubleValue() - pose.translation[0] > .3) {
+                                        if(pose.rotation[1] > 1.18 || pose.rotation[1] < 0.18){
+                                            //go right
+                                            directionText = "go right";
+                                        }else {
+                                            //go left
+                                            directionText = "go left";
+                                        }
+                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
+                                        distance.setSecond(diffDistance);
+                                    }else if (pair.first.doubleValue() - pose.translation[0] < -0.3) {
+                                        if(pose.rotation[1] > 1.18 || pose.rotation[1] < 0.18){
+                                            //go left
+                                            directionText = "go left";
+                                        }else {
+                                            //go right
+                                            directionText = "go right";
+                                        }
+
+                                        diffDistance = Math.abs(pair.first.doubleValue() - pose.translation[0]);
+                                        distance.setSecond(diffDistance);
+                                    }
+                                    else if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.015 ){
                                         if ((pose.rotation[1] >= points.get(0).getRotation()) && pose.rotation[1] - points.get(0).getRotation() < 0.05) {
                                         }
                                         else if ((pose.rotation[1] <= points.get(0).getRotation()) &&  points.get(0).getRotation() - pose.rotation[1]  < 0.05) {
                                         }else {
-
-                                            if ((pose.rotation[1] >= points.get(0).getRotation()) ) {
-
-                                                directionText = "Keep Rotating to RIGHT";
+                                            if ((pose.rotation[1] <= points.get(0).getRotation()) ) {
+                                                directionText = "Keep Rotating to Right";
                                                 diffDistance = pose.rotation[1] - points.get(0).getRotation();
+                                                distance.setThird(diffDistance);
                                             }
-                                            else if ((pose.rotation[1] <= points.get(0).getRotation())) {
-
-                                                directionText = "Keep Rotating to LEFT";
+                                            else if ((pose.rotation[1] >= points.get(0).getRotation())) {
+                                                directionText = "Keep Rotating to Left";
                                                 diffDistance = points.get(0).getRotation() - pose.rotation[1];
+                                                distance.setThird(diffDistance);
                                             }
-
                                         }
-                                    }
-                                    else if (pair.first.doubleValue() - pose.translation[0] > .2) {
-                                        //go left
-                                        directionText = "go right";
-
-                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
-                                    } else if (pair.first.doubleValue() - pose.translation[0] < -0.2) {
-                                        //go right
-                                        directionText = "go left";
-                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
-                                    } else {
-                                        //go right
+                                    }else {
+                                        //go straight
                                         directionText = "go straight";
-                                        diffDistance = pair.first.doubleValue() - pose.translation[0];
+                                        diffDistance = pair.first.doubleValue() - pose.translation[1];
+                                        distance.setFirst(diffDistance);
                                     }
 
-                                    if (pair.second.doubleValue() - pose.translation[1] <= 0) {
+                                    if (pose.translation[1] - pair.second.doubleValue() >= -0.1 && pose.translation[1] - pair.second.doubleValue() <= 0.1
+                                            || (pose.translation[1] - pair.second.doubleValue() <= 0.1 && pose.translation[1] - pair.second.doubleValue() >= -0.1)) {
                                         //rotate
                                         points.remove(0);
+                                        if (points.size() == 0)
+                                            directionText = "Destination Reached";
                                     }
                                 } else if (points.get(0).getType().equals(Orientation.MOTION_X)) {
                                     //lets do something with it
                                     Pair<Float, Float> pair = points.get(0).getXy();
 
-                                    if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.10 ){
+
+                                    distance.setSecond(Math.abs(pair.second.doubleValue() - pose.translation[1]));
+                                    if (pose.translation[1] - pair.second.doubleValue() > 0.3) {
+                                        if(pose.rotation[1] > 0.675){
+                                            //go right
+                                            directionText = "go right";
+                                        }else {
+                                            //go left
+                                            directionText = "go left";
+                                        }
+                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
+                                    } else if (pose.translation[1] - pair.second.doubleValue() < -0.3) {
+                                        if(pose.rotation[1] > 0.675){
+                                            //go left
+                                            directionText = "go left";
+                                        }else {
+                                            //go right
+                                            directionText = "go right";
+                                        }
+                                        diffDistance = Math.abs(pose.translation[1] - pair.second.doubleValue());
+                                    }else if(Math.abs(points.get(0).getRotation() - pose.rotation[1]) >= 0.03 ){
                                         if ((pose.rotation[1] >= points.get(0).getRotation()) && pose.rotation[1] - points.get(0).getRotation() < 0.05) {
                                         }
                                         else if ((pose.rotation[1] <= points.get(0).getRotation()) &&  points.get(0).getRotation() - pose.rotation[1]  < 0.05) {
                                         }else {
-
                                             if ((pose.rotation[1] >= points.get(0).getRotation()) ) {
 
-                                                directionText = "Keep Rotating to RIGHT";
+                                                directionText = "Keep Rotating to Right";
                                                 diffDistance = pose.rotation[1] - points.get(0).getRotation();
+                                                distance.setThird(diffDistance);
                                             }
                                             else if ((pose.rotation[1] <= points.get(0).getRotation())) {
 
-                                                directionText = "Keep Rotating to LEFT";
+                                                directionText = "Keep Rotating to Left";
                                                 diffDistance = points.get(0).getRotation() - pose.rotation[1];
+                                                distance.setThird(diffDistance);
                                             }
-
                                         }
                                     }
-                                    else if (pose.translation[1] - pair.second.doubleValue() > .2) {
-                                        //go left
-                                        directionText = "go left";
-                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
-                                    } else if (pose.translation[1] - pair.second.doubleValue() < -0.2) {
-                                        //go right
-                                        directionText = "go right";
-                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
-                                    } else {
-                                        //go right
+                                    else {
+                                        //go straight
                                         directionText = "go straight";
-                                        diffDistance = pose.translation[1] - pair.second.doubleValue();
+                                        diffDistance = pose.translation[0] - pair.second.doubleValue();
+                                        distance.setFirst(diffDistance);
                                     }
 
-                                    if (pose.translation[0] - pair.first.doubleValue() <= 0) {
+                                    if ( pose.translation[0] - pair.first.doubleValue() >= -0.1 && pose.translation[0] - pair.first.doubleValue() <= 0.1
+                                            || (pose.translation[0] - pair.first.doubleValue() <= 0.1 && pose.translation[0] - pair.first.doubleValue() >= -0.1)) {
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reachedx";
+                                            directionText = "Destination Reached";
                                     }
                                 } else if (points.get(0).getType().equals(Orientation.ROT)) {
                                     Float rotation = points.get(0).getRotation();
 
-                                    if ((pose.rotation[1] >= rotation) && pose.rotation[1] - rotation < 0.05) {
+                                    Log.d("Error in rotation","rotation = %d" + (pose.rotation[1] - rotation) );
+
+                                    if ((pose.rotation[1] >= rotation) && (pose.rotation[1] - rotation < 0.05 )) {
 
                                         Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + rotation);
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reachedr";
+                                            directionText = "Destination Reached";
                                     }
-                                    else if ((pose.rotation[1] <= rotation) &&  rotation - pose.rotation[1]  < 0.05) {
+                                    else if ((pose.rotation[1] <= rotation) &&  (rotation - pose.rotation[1]  < 0.05 )) {
 
                                         Log.d("Wayfinder", "rotation = " + pose.rotation[1] +" required = " + rotation);
                                         //rotate
                                         points.remove(0);
                                         if (points.size() == 0)
-                                            directionText = "Destination Reachedr";
+                                            directionText = "Destination Reached";
                                     }else {
 
                                         if ((pose.rotation[1] >= rotation) ) {
@@ -442,11 +479,9 @@ public class WayFinder {
                 if (mTimeToNextUpdate < 0.0) {
                     mTimeToNextUpdate = UPDATE_INTERVAL_MS;
 
-
-
                     //callback to send data
                     if(mPoses[0]!=null) {
-                        mCallback.motionSystem(directionText, diffDistance, mPoses[0]);
+                        mCallback.motionSystem(directionText, distance, mPoses[0]);
                     }
                 }
 

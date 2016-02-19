@@ -1,0 +1,18 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - MagicalRecord (2.1):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.1)
+  - SVProgressHUD (0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 1.2.1)
+  - MagicalRecord (~> 2.1)
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: 7e82cfea05017c338ae62897f0a09ba1a8ebb479
+  MagicalRecord: 5db5b3b3d70e62b0c310c57f1294be61fbc7d548
+  SVProgressHUD: adf9def97327df88dee15e9ad8033fde6961f7b4
+
+COCOAPODS: 0.33.1

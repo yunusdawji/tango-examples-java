@@ -1,0 +1,54 @@
+-- VERSION_4
+-- START DISKCACHE
+/Users/yunusdawji/Documents/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/myapp/com.python.pydev.analysis/v2_indexcache
+myapp.settings|1400017652000|/Users/yunusdawji/Documents/workspace/myapp/myapp/settings.py
+myapp.urls|1400017464000|/Users/yunusdawji/Documents/workspace/myapp/myapp/urls.py
+myapp.__init__|1399921255000|/Users/yunusdawji/Documents/workspace/myapp/myapp/__init__.py
+myapp.models|1399924251000|/Users/yunusdawji/Documents/workspace/myapp/myapp/models.py
+manage|1399921255000|/Users/yunusdawji/Documents/workspace/myapp/manage.py
+myapp.wsgi|1399921255000|/Users/yunusdawji/Documents/workspace/myapp/myapp/wsgi.py
+-- END DISKCACHE
+-- START DICTIONARY
+5
+1=myapp.settings
+4=myapp.urls
+3=myapp.models
+5=Profile
+2=myapp.wsgi
+-- END DICTIONARY
+-- START TREE 1
+20
+!<m|0|
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+ins|1|INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+my_|0|
+pro|1|Profile!25@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sig|0|
+sta|2|STATIC_ROOT!11@STATIC_URL!11@
+tem|2|TEMPLATE_DEBUG!11@TEMPLATE_DIRS!11@
+tim|1|TIME_ZONE!11@
+url|1|urlpatterns!35@
+use|3|USE_I18N!11@USE_TZ!11@USE_L10N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+10
+cat|1|catergory!5&27@
+con|0|
+fac|1|facebook_id!5&27@
+id|1|id!5&27@
+mod|0|
+nam|1|name!5&27@
+obj|0|
+par|0|
+pos|0|
+req|0|
+-- END TREE

@@ -1,0 +1,11 @@
+avrdudepropertypage/previewexpanded=true
+avrdudepropertypage/weight_preview_collapsed=51
+avrdudepropertypage/weight_preview_expanded=200
+avrdudepropertypage/weight_top_collapsed=941
+avrdudepropertypage/weight_top_expanded=800
+avrpaths//systempath/AVRDUDE=/usr/local/CrossPack-AVR-20131216/bin
+avrpaths//systempath/AVRGCC=/usr/local/CrossPack-AVR-20131216/bin
+avrpaths//systempath/AVRINCLUDE=/usr/local/CrossPack-AVR-20131216/avr/include
+avrpaths//systempath/MAKE=/usr/bin
+avrpaths//systempath/PDFPATH=
+eclipse.preferences.version=1

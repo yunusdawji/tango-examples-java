@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RobotMediator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="mediation_interface_toggle">Mediation Interface</string>
+    <string name="mediation_verify_signature">Verify Signature</string>
+    <string name="mediation_create_signature">Create Signature</string>
+    <string name="btn_start_usb">Start USB</string>
+    <string name="mediation_instruction_text">Use the toggle button below to turn the Robot Connection On/Off.</string>
+
+</resources>
